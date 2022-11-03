@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>欢迎来到Lee的博客网站</title>
+      <link href="/2022/11/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2022/11/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>谨以此文纪念我的博客网站的建立</p><h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>一直以来，我都对计算机方面充满兴趣。可是迫于正在就读的电子信息类专业课程的繁杂（狗都不学），我便未能在计算机上去进一步深入了解和学习（事实是，其实大把的时间拿去刷短视频和打游戏了）。</p><p>而这个月初，我终于狠下心来，逼着自己尝试去建一个小的博客网站（因为比起用CSDN和博客园等现成的平台，我更倾向于”作死“自己去搭建和鼓捣）。于是从一时兴起的“发烧”，到网上反复观看教程，“科学上网”去下载源代码，调试频频报错又头皮发麻的指令……</p><p>历时三天下午的”狂肝“，我的博客网站终于搭建好了！</p><p>首先，这是一个基于Hexo框架的博客网站，依托于GitHub平台作为“服务器”进行部署，从而实现在互联网上能够访问。当她最终完成的那一刻，这对一个非计算机科班的学生我来说，内心的惊喜之情，可谓是难以言表。真是“临表涕零，不知所言”啊！</p><p>在开始搭建网站的这三天里，基本上白天我都在上课，也只有利用自己课间的闲暇时光，去处理一些技术上的问题。可曾知，命令行中的报错总是在你一遍又一遍地输入指令后，仍然死皮烂脸，接踵而至；网页配置文件的修改更是繁琐沉重，一不留心少个空格，或者拼写错误就足够折磨；Github在国内的访问连接也是时好时断，网络超时中断造成上传失败，一遍又一遍在挫败我的耐心与信心……</p><p>然而，雄关漫道真如铁，而今迈步从头越！终于在今天下午，这一切的一切，总算是告一段落。尽管博客网站上还有很多功能，如”标签“”分类“板块的补充，”留言板“的搭建，以及访问主题界面的进一步优化等等，还未付诸实现。但是有什么要紧的呢，当我望着这个充满缺陷但是至少”像模像样“的网站时，心中仍旧是充满了无比欣慰，甚至激动无比。就像是儿童时代，小孩子在完成了爸妈交给的事情后，那种欣喜若狂，认为自己是长大了，以后在家里也可以”顶天立地“一样……</p><p>当然，我深知，在这个博客项目的很多地方，自己无非是借用了网上大佬们的模板。在网页前端设计方面上一窍不通的我，这个博客的搭建也不过是停留在配置文件上的删改，这与一个真正意义上的博客网站创建、编写、设计、调试、上传还相距甚远，所以无论是知识的学习，还是实际的操作，我要努力的地方还有很多。可以说，来日方长，未来可期，要走的路还很漫长呢！</p><p>从长远上说，这个博客网站的搭建，其实是为我后续在编程方向的学习做铺垫的。慢慢地，我会进一步去完善她的内容，丰富上面的功能，修改一些错误。与此同时，我也会陆陆续续地在上面，上传自己在计算机方面的学习历程，比如说分享一些有趣的C语言题目，还有自己目前正在学的数据结构课程。当然，未来肯定也不会止于这些。本质上，我也想依靠这个博客的建立与完善，进一步督促自己的学习和坚定朝计算机方面发展的动力，并去完善自己，充实自己，也成就自己！</p><p>倘若，在这条建设网页，琢磨”小玩意儿“，折磨自己与bug对抗的路上……能够学到更多知识，收获一些工作感悟，有所建树，甚至能够为这个社会、国家带来一些小贡献时，这又何尝不是人生一件乐事呢！</p><h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>很荣幸你能浏览这个网页，并看完这篇文章。如果你有什么想法或者建议，可以通过网站上的联系方式与我交流。如果你也对此抱有兴趣，本次编写博客网页的所有源代码，也均在我的Github账号主页的项目中能够找到，欢迎大家相互交流学习！</p><p>最后，创作不易，如果这篇博文给你带了帮助，也希望你能够把网站地址分享给更多的朋友，让本平台能够被更多的人所看到，而读者的支持也正是我们创作者为之奋斗的动力！当然，也欢迎大家点击下方标有”赏“字的按钮，进行打赏和支持，这亦是对我们创作的最大肯定！</p><p>再次感谢您的浏览和支持！</p><hr><h3 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h3><p>以下是Hexo的五项指令，仅作纪念。</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g$ hexo init blog$ <span class="token function">cd</span> blog$ <span class="token function">npm</span> <span class="token function">install</span>$ hexo server</code></pre><p>并对本网站所基于的主题Mtery，B站”CodeSheep“、”花火么“，”计算机毕设开发“等UP主所开设教程的帮助，以及CSDN论坛博主”伊丶二“相关文章的参考指导，在此一并致以感谢！更多相关源代码详情，欢迎点击我的GitHub账号，访问我的主页浏览和下载学习。后续在时间允许的条件下，我也会在此出相关的教程，来传授如何搭建博客网站（但是学业真是太繁杂了，我确实也太懒了，寄！！！）。</p><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>1.手把手教你从0开始搭建自己的个人博客|无坑版视频教程|hexo https:&#x2F;<a href="http://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.880.my_history.page.click&amp;vd_source=4391f3e2849f62b9231a5b89eeca0660">www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.880.my_history.page.click&amp;vd_source=4391f3e2849f62b9231a5b89eeca0660</a></p><p>2.【2021最新版】保姆级Hexo+github搭建个人博客 <a href="https://www.bilibili.com/video/BV1mU4y1j72n/?p=4&amp;spm_id_from=333.880.my_history.page.click&amp;vd_source=4391f3e2849f62b9231a5b89eeca0660">https://www.bilibili.com/video/BV1mU4y1j72n/?p=4&amp;spm_id_from=333.880.my_history.page.click&amp;vd_source=4391f3e2849f62b9231a5b89eeca0660</a></p><p>3.hexo搭建个人博客超简单效果超好的个人网站博客搭建对小白很友好 <a href="https://www.bilibili.com/video/BV1Rt4y1k7it/?p=7&amp;spm_id_from=333.880.my_history.page.click">https://www.bilibili.com/video/BV1Rt4y1k7it/?p=7&amp;spm_id_from=333.880.my_history.page.click</a></p><p>4.hexo博客matery主题的个性化配置 <a href="https://blog.csdn.net/qq_41376237/article/details/113475727?app_version=5.10.0&amp;code=app_1562916241&amp;csdn_share_tail=%7B%22type%22:%22blog%22,%22rType%22:%22article%22,%22rId%22:%22113475727%22,%22source%22:%22qq_74845080%22%7D&amp;uLinkId=usr1mkqgl919blen&amp;utm_source=app">https://blog.csdn.net/qq_41376237/article/details/113475727?app_version=5.10.0&amp;code=app_1562916241&amp;csdn_share_tail=%7B%22type%22%3A%22blog%22%2C%22rType%22%3A%22article%22%2C%22rId%22%3A%22113475727%22%2C%22source%22%3A%22qq_74845080%22%7D&amp;uLinkId=usr1mkqgl919blen&amp;utm_source=app</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随心笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo入门 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2022/11/01/hello-world/"/>
+      <url>/2022/11/01/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
