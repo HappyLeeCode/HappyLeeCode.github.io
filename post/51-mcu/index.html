@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='当你准备学习单片机知识时，欢迎你开始步入神奇的电子技术世界！'>
+<title>51单片机入门</title>
+
+<link rel='canonical' href='https://www.happylee.cn/post/51-mcu/'>
+
+<link rel="stylesheet" href="/scss/style.min.afa623dfb9682b431496282473b3cd5704dfb51f22d0d528a89d9d56858188d7.css"><meta property='og:title' content='51单片机入门'>
+<meta property='og:description' content='当你准备学习单片机知识时，欢迎你开始步入神奇的电子技术世界！'>
+<meta property='og:url' content='https://www.happylee.cn/post/51-mcu/'>
+<meta property='og:site_name' content='Lee&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='C' /><meta property='article:published_time' content='2023-04-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-15T00:00:00&#43;00:00'/><meta property='og:image' content='https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/stc51.png' />
+<meta name="twitter:title" content="51单片机入门">
+<meta name="twitter:description" content="当你准备学习单片机知识时，欢迎你开始步入神奇的电子技术世界！"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/stc51.png' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一单片机介绍">一、单片机介绍</a></li>
+    <li><a href="#二什么是51单片机为什么叫51单片机">二、什么是51单片机/为什么叫51单片机？</a></li>
+    <li><a href="#三开发工具">三、开发工具</a></li>
+    <li><a href="#四推荐教程视频">四、推荐教程视频</a></li>
+    <li><a href="#五后续更新">五、后续更新</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/51-mcu/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/stc51.png" loading="lazy" alt="Featured image of post 51单片机入门" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/" >
+                51单片机
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/51-mcu/">51单片机入门</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            当你准备学习单片机知识时，欢迎你开始步入神奇的电子技术世界！
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 15, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>写在前面：</p>
+<ul>
+<li>
+<p>当你准备学习单片机知识时，欢迎你开始步入神奇的电子技术世界！</p>
+</li>
+<li>
+<p>本系列文章是我学习单片机开发的路线笔记，并将会持续不定期更新</p>
+</li>
+<li>
+<p>如果你在阅读文章中有任何不懂的问题，或者发现文章中一些错误的地方</p>
+<p>欢迎在下方评论区，与我联系和讨论！</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="前言">前言：</h1>
+<p>在正式开始了解和接触单片机之前，你<strong>最好</strong>应具备：</p>
+<ul>
+<li>
+<p>学习过<strong>C语言</strong>，掌握C语言中的一些基本语法，有一定的编程基础</p>
+</li>
+<li>
+<p>学习过<strong>模电</strong>和<strong>数电</strong>，或者有一定的相关了解和基础（尤其是数电）</p>
+<p>如果你没有学过模电和数电，也没有关系</p>
+<p>这里推荐一个科普课程：<a class="link" href="https://www.bilibili.com/video/BV1EW411u7th/?spm_id_from=333.337.search-card.all.click&amp;vd_source=4391f3e2849f62b9231a5b89eeca0660"  target="_blank" rel="noopener"
+    ><strong>计算机科学速成课</strong></a>（只需要看前10节就行，每节时长只有10分钟左右）</p>
+<p>看完之后，将会对后续单片机的学习有更好的促进作用！</p>
+</li>
+</ul>
+<h1 id="正文">正文：</h1>
+<h2 id="一单片机介绍">一、单片机介绍</h2>
+<p>•单片机，英文Micro Controller Unit，简称MCU</p>
+<p>•内部集成了CPU、RAM、ROM、定时器、中断系统、通讯接口等一系列电脑的常用硬件功能</p>
+<p>•单片机的任务是信息采集（依靠传感器）、处理（依靠CPU）和硬件设备（例如电机，LED等）的控制</p>
+<p>•单片机跟计算机相比，单片机算是一个袖珍版计算机，一个芯片就能构成完整的计算机系统。但在性能上，与计算机相差甚远，但单片机成本低、体积小、结构简单，在生活和工业控制领域大有所用</p>
+<p>•<strong>同时，学习使用单片机是了解计算机原理与结构的最佳选择</strong></p>
+<h2 id="二什么是51单片机为什么叫51单片机">二、什么是51单片机/为什么叫51单片机？</h2>
+<ul>
+<li>51单片机是对兼容<a class="link" href="https://baike.baidu.com/item/%e8%8b%b1%e7%89%b9%e5%b0%94/305730?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >英特尔</a>8051<a class="link" href="https://baike.baidu.com/item/%e6%8c%87%e4%bb%a4%e7%b3%bb%e7%bb%9f/3220297?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >指令系统</a>的<a class="link" href="https://baike.baidu.com/item/%e5%8d%95%e7%89%87%e6%9c%ba/102396?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >单片机</a>的统称。正是因为这个“8051”有个51,所以凡是与“8051”内核一样的单片机都统称为51系列单片机。</li>
+<li>51单片机广泛应用于家用电器、汽车、工业测控、<a class="link" href="https://baike.baidu.com/item/%e9%80%9a%e4%bf%a1%e8%ae%be%e5%a4%87/10476282?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >通信设备</a>中。因为51单片机的<a class="link" href="https://baike.baidu.com/item/%e6%8c%87%e4%bb%a4%e7%b3%bb%e7%bb%9f/3220297?fromModule=lemma_inlink"  target="_blank" rel="noopener"
+    >指令系统</a>、内部结构相对简单，所以国内许多高校用其进行单片机入门教学。</li>
+</ul>
+<h2 id="三开发工具">三、开发工具</h2>
+<ol>
+<li>
+<p>开发软件<strong>Keil5C51</strong>——用于编写单片机程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/stm32u5.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>烧录软件<strong>stc-isp</strong>——用于将写好的程序下载到单片机上</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/stm32.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>普中<a class="link" href="https://so.csdn.net/so/search?q=51%e5%8d%95%e7%89%87%e6%9c%ba&amp;spm=1001.2101.3001.7020"  target="_blank" rel="noopener"
+    >51单片机</a><strong>开发板</strong></p>
+</li>
+</ol>
+<p>​		上面除了有STC89C51芯片(即51单片机)以外，另外在开发板上还集成有数码管、LED灯管、蜂鸣器等模块，方便我们学习单片机时，来调用和实现一些功能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/%7dD6%7dPGS%60XT8%7bOM7NO9%7d6D_M.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/M1RZTV2.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="四推荐教程视频">四、推荐教程视频</h2>
+<ul>
+<li>B站：<a class="link" href="https://www.bilibili.com/video/BV1Mb411e7re/?spm_id_from=333.337.search-card.all.click&amp;vd_source=4391f3e2849f62b9231a5b89eeca0660"  target="_blank" rel="noopener"
+    >江协科技  51单片机入门教程-2020版 程序全程纯手打 从零开始入门</a>（原江科大自化协51单片机教程视频）</li>
+</ul>
+<h2 id="五后续更新">五、后续更新</h2>
+<ul>
+<li>
+<p>我会不定期更新自己在学习51单片机过程中的学习笔记和心得体会，并上传相关的实验操作代码和数据。</p>
+</li>
+<li>
+<p>欢迎感兴趣的同学，与我交流学习，我们共同进步！</p>
+</li>
+<li>
+<p>本系列文章未完待续，请关注留意！</p>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/c/">C</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/mytwikoo.happylee.cn\/.netlify\/functions\/twikoo',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Henry Lee
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

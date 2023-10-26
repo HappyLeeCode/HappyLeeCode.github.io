@@ -7,45 +7,77 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Henry Lee</copyright>
-        <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>C&#43;&#43;程序设计</title>
+        <link>https://www.happylee.cn/categories/c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</link>
+        <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/c&#43;&#43;%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>博客</title>
+        <link>https://www.happylee.cn/categories/%E5%8D%9A%E5%AE%A2/</link>
+        <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E5%8D%9A%E5%AE%A2/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>教程</title>
+        <link>https://www.happylee.cn/categories/%E6%95%99%E7%A8%8B/</link>
+        <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E6%95%99%E7%A8%8B/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>通知公告</title>
+        <link>https://www.happylee.cn/categories/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A/</link>
+        <pubDate>Sun, 11 Jun 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>计算机仿真</title>
+        <link>https://www.happylee.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F/</link>
+        <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>电路实验</title>
+        <link>https://www.happylee.cn/categories/%E7%94%B5%E8%B7%AF%E5%AE%9E%E9%AA%8C/</link>
+        <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E7%94%B5%E8%B7%AF%E5%AE%9E%E9%AA%8C/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>51单片机</title>
+        <link>https://www.happylee.cn/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/</link>
+        <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>图床</title>
+        <link>https://www.happylee.cn/categories/%E5%9B%BE%E5%BA%8A/</link>
+        <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E5%9B%BE%E5%BA%8A/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Test</title>
         <link>https://www.happylee.cn/categories/test/</link>
-        <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/categories/test/</guid>
         <description>&lt;img src="https://www.happylee.cn/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
-        </item>
-        <item>
-        <title>测试</title>
-        <link>https://www.happylee.cn/categories/%E6%B5%8B%E8%AF%95/</link>
-        <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/categories/%E6%B5%8B%E8%AF%95/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>syntax</title>
-        <link>https://www.happylee.cn/categories/syntax/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/categories/syntax/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>themes</title>
-        <link>https://www.happylee.cn/categories/themes/</link>
-        <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/categories/themes/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Test with whitespaces</title>
-        <link>https://www.happylee.cn/categories/test-with-whitespaces/</link>
-        <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/categories/test-with-whitespaces/</guid>
-        <description></description>
         </item>
         
     </channel>

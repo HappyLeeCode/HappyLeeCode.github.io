@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='当有多个git账号的时候，比如一个是GitHub的，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云gitee账号（或者来一个gitlab账号，一般是公司内部用到的git）。我们在使用这几者时，就会涉及到一个问题：在绑定SSH密钥的过程中，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个后面就用不了。'>
+<title>解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题</title>
+
+<link rel='canonical' href='https://www.happylee.cn/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/'>
+
+<link rel="stylesheet" href="/scss/style.min.afa623dfb9682b431496282473b3cd5704dfb51f22d0d528a89d9d56858188d7.css"><meta property='og:title' content='解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题'>
+<meta property='og:description' content='当有多个git账号的时候，比如一个是GitHub的，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云gitee账号（或者来一个gitlab账号，一般是公司内部用到的git）。我们在使用这几者时，就会涉及到一个问题：在绑定SSH密钥的过程中，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个后面就用不了。'>
+<meta property='og:url' content='https://www.happylee.cn/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/'>
+<meta property='og:site_name' content='Lee&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Git' /><meta property='article:tag' content='GitHub' /><meta property='article:tag' content='SSH' /><meta property='article:published_time' content='2023-04-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-05T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题">
+<meta name="twitter:description" content="当有多个git账号的时候，比如一个是GitHub的，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云gitee账号（或者来一个gitlab账号，一般是公司内部用到的git）。我们在使用这几者时，就会涉及到一个问题：在绑定SSH密钥的过程中，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个后面就用不了。">
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一原因分析">一、原因分析：</a></li>
+    <li><a href="#二解决方案">二、解决方案：</a>
+      <ol>
+        <li><a href="#1查看ssh文件">1.查看ssh文件</a></li>
+        <li><a href="#2删除之前的ssh">2.删除之前的.ssh</a></li>
+        <li><a href="#3分别生成gitee和github-的-ssh-key">3.分别生成gitee和github 的 SSH Key</a></li>
+        <li><a href="#4添加-config解决ssh冲突">4.添加 config解决ssh冲突</a></li>
+        <li><a href="#5测试">5.测试</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%95%99%E7%A8%8B/" >
+                教程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/">解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            当有多个git账号的时候，比如一个是GitHub的，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云gitee账号（或者来一个gitlab账号，一般是公司内部用到的git）。我们在使用这几者时，就会涉及到一个问题：在绑定SSH密钥的过程中，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个后面就用不了。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 05, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="前言">前言</h1>
+<blockquote>
+<p>问题描述：</p>
+<ul>
+<li>当我们拥有<strong>多个</strong>git账号的时候，比如一个是<strong>GitHub</strong>账号，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云<strong>gitee</strong>账号(或者来了一个<strong>gitlab</strong>账号，一般是公司内部用到的git)。我们在使用这几者时，就必然会涉及到一个问题：在<strong>绑定SSH密钥</strong>的过程中，生成第二个git的key的时候会<strong>覆盖</strong>第一个的key，导致必然其中有一个就用不了。</li>
+</ul>
+<p>解决方案：</p>
+<ul>
+<li><strong>多个ssh key管理</strong>：我们可以在.ssh文件目录下新建一个<strong>config</strong>文件配置一下，就可以解决问题</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="正文">正文</h1>
+<h2 id="一原因分析">一、原因分析：</h2>
+<p>注意：出现SSH密钥冲突问题的实质，其实就在于我们每次（尤其是第一次时）是否知道可以自定义密钥名</p>
+<ul>
+<li>
+<p>很多人第一次生成密钥时，直接在命令行中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;用户名&#34;</span>                   
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;用户邮箱&#34;</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -t rsa -C <span class="s2">&#34;用户邮箱&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>前两行是在设置用户名和邮箱，重点是上面第三行代码，即生成密钥的代码。如果就按这样写的话，那么密钥的文件名字就是默认的：</p>
+</li>
+<li>
+<p>那么我们在第二个平台进行生成密钥（比如我们已经生成过GitHub的ssh密钥，再准备生成gitee的密钥时）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/Kkkkkikkkk.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p>图中  <strong>Overwrite(y/n)?</strong>  即在提示是否覆盖：选择y，就会覆盖导致之前的失效；选择n，即取消本次的覆盖，就不会创建新的密钥了</p>
+</li>
+</ul>
+<h2 id="二解决方案">二、解决方案：</h2>
+<h3 id="1查看ssh文件">1.查看ssh文件</h3>
+<ul>
+<li>
+<p><strong>在桌面 点击鼠标右键 （Git Bash here） 进入 .ssh 文件夹 如下图（注意空格）：</strong></p>
+</li>
+<li>
+<p><strong>ls</strong>  命令检查是否存在 SSH Key</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680630823889.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>出现上图说明我们之前的确已经生成过SSH密钥了</strong></p>
+<p><strong>注意：如果没有该文件夹，自己 C 盘的 用户路径下 新建 .ssh 文件夹</strong></p>
+<h3 id="2删除之前的ssh">2.删除之前的.ssh</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680631208821.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="3分别生成gitee和github-的-ssh-key">3.分别生成gitee和github 的 SSH Key</h3>
+<ul>
+<li>
+<p><strong>（1）生成github的密钥，自定义其名称</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -t rsa -C &#34;xxxxxxx@qq.com&#34; -f &#34;id_rsa_github&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>（2）配置github的SSH key</strong></p>
+<p>输入自己的邮箱后一直回车，即可出现以下画面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680631744244.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p><strong>（3）查看SSH Key</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">cat id_rsa_github.pub     // 这里是查看 github的 SSH Key
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>出现下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680632284727.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+</li>
+<li>
+<p><strong>（4）拷贝 ssh-rsa 开头的 ssh key，然后到github上添加ssh key</strong></p>
+</li>
+<li>
+<p><strong>（5）配置gitee的 ssh key</strong></p>
+</li>
+</ul>
+<p>操作和上面的类似，只是把命令换成了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -t rsa -C &#34;xxxxxxx@qq.com&#34; -f &#34;id_rsa_gitee&#34;     //生成gitee的SSH Key
+</span></span><span class="line"><span class="cl">cat id_rsa_gitee.pub             //这里是查看gitee的SSHKey（这里注意和github区分一下)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>（6）然后把生成的 ssh key 复制到 gitee，进行添加 ssh key 操作，（操作类似上面的 github 添加 ssh）</strong></li>
+</ul>
+<h3 id="4添加-config解决ssh冲突">4.添加 config解决ssh冲突</h3>
+<ul>
+<li>在 .ssh 文件夹路径下 ，执行命令：vi config</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680632707009.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<blockquote>
+<p>在这里面一个一个输入比较慢，所以先退出，先按键盘的 Esc，输入“   :wq  ”，回车退出然后 C盘 的.shh 文件夹中 找到 并打开 config 文件，将下面的内容复制进 config 文件，保存即可</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680632728920.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># gitee
+</span></span><span class="line"><span class="cl">Host gitee.com
+</span></span><span class="line"><span class="cl">HostName gitee.com
+</span></span><span class="line"><span class="cl">PreferredAuthentications publickey
+</span></span><span class="line"><span class="cl">IdentityFile ~/.ssh/id_rsa_gitee
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"># github
+</span></span><span class="line"><span class="cl">Host github.com
+</span></span><span class="line"><span class="cl">HostName github.com
+</span></span><span class="line"><span class="cl">PreferredAuthentications publickey
+</span></span><span class="line"><span class="cl">IdentityFile ~/.ssh/id_rsa_github
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意：上面这个是关键的一步，一定要新创建config文件来解决SSH冲突</p>
+<h3 id="5测试">5.测试</h3>
+<ul>
+<li>执行<code>ssh -T git@github.com</code>,出现<code>successfully</code>,则github配置成功。</li>
+<li>执行<code>ssh -T git@gitee.com</code>,出现<code>successfully</code>,则gitee配置成功。</li>
+</ul>
+<p><strong>注意</strong>：
+可能会出现下面的内容 （直接输入 <strong>yes</strong> 即可最终出现<code>successfully</code>，配置成功）</p>
+<blockquote>
+<p>The authenticity of host &lsquo;gitee.com (212.64.63.190)&rsquo; can&rsquo;t be established.
+ECDSA key fingerprint is SHA256:FQGC9Kn/eye1W8icdBgrQp+KkGYoFgbVr17bmjey0Wc.
+Are you sure you want to continue connecting (yes/no/[fingerprint])</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/git/">Git</a>
+        
+            <a href="/tags/github/">GitHub</a>
+        
+            <a href="/tags/ssh/">SSH</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/post/butterfly-loading/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/loading.png" loading="lazy" data-key="butterfly-loading" data-hash="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/loading.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">一款基于Butterfly主题的loading动画</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/post/blog-hexo/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/hexo.png" loading="lazy" data-key="blog-hexo" data-hash="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/hexo.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">入门搭建个人博客教程（Hexo篇）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/mytwikoo.happylee.cn\/.netlify\/functions\/twikoo',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Henry Lee
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

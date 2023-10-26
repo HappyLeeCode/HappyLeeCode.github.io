@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>SSH on Lee&#39;s Blog</title>
+        <link>https://www.happylee.cn/tags/ssh/</link>
+        <description>Recent content in SSH on Lee&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Henry Lee</copyright>
+        <lastBuildDate>Wed, 05 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/tags/ssh/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题</title>
+        <link>https://www.happylee.cn/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/</link>
+        <pubDate>Wed, 05 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/</guid>
+        <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;问题描述：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当我们拥有&lt;strong&gt;多个&lt;/strong&gt;git账号的时候，比如一个是&lt;strong&gt;GitHub&lt;/strong&gt;账号，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云&lt;strong&gt;gitee&lt;/strong&gt;账号(或者来了一个&lt;strong&gt;gitlab&lt;/strong&gt;账号，一般是公司内部用到的git)。我们在使用这几者时，就必然会涉及到一个问题：在&lt;strong&gt;绑定SSH密钥&lt;/strong&gt;的过程中，生成第二个git的key的时候会&lt;strong&gt;覆盖&lt;/strong&gt;第一个的key，导致必然其中有一个就用不了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决方案：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多个ssh key管理&lt;/strong&gt;：我们可以在.ssh文件目录下新建一个&lt;strong&gt;config&lt;/strong&gt;文件配置一下，就可以解决问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;正文&#34;&gt;正文&lt;/h1&gt;
+&lt;h2 id=&#34;一原因分析&#34;&gt;一、原因分析：&lt;/h2&gt;
+&lt;p&gt;注意：出现SSH密钥冲突问题的实质，其实就在于我们每次（尤其是第一次时）是否知道可以自定义密钥名&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;很多人第一次生成密钥时，直接在命令行中：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;用户名&amp;#34;&lt;/span&gt;                   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;用户邮箱&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;用户邮箱&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前两行是在设置用户名和邮箱，重点是上面第三行代码，即生成密钥的代码。如果就按这样写的话，那么密钥的文件名字就是默认的：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;那么我们在第二个平台进行生成密钥（比如我们已经生成过GitHub的ssh密钥，再准备生成gitee的密钥时）：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/Kkkkkikkkk.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;图中  &lt;strong&gt;Overwrite(y/n)?&lt;/strong&gt;  即在提示是否覆盖：选择y，就会覆盖导致之前的失效；选择n，即取消本次的覆盖，就不会创建新的密钥了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;二解决方案&#34;&gt;二、解决方案：&lt;/h2&gt;
+&lt;h3 id=&#34;1查看ssh文件&#34;&gt;1.查看ssh文件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;在桌面 点击鼠标右键 （Git Bash here） 进入 .ssh 文件夹 如下图（注意空格）：&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ls&lt;/strong&gt;  命令检查是否存在 SSH Key&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680630823889.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;出现上图说明我们之前的确已经生成过SSH密钥了&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：如果没有该文件夹，自己 C 盘的 用户路径下 新建 .ssh 文件夹&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2删除之前的ssh&#34;&gt;2.删除之前的.ssh&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680631208821.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3分别生成gitee和github-的-ssh-key&#34;&gt;3.分别生成gitee和github 的 SSH Key&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;（1）生成github的密钥，自定义其名称&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &amp;#34;xxxxxxx@qq.com&amp;#34; -f &amp;#34;id_rsa_github&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;（2）配置github的SSH key&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;输入自己的邮箱后一直回车，即可出现以下画面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680631744244.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;（3）查看SSH Key&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat id_rsa_github.pub     // 这里是查看 github的 SSH Key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;出现下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680632284727.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;（4）拷贝 ssh-rsa 开头的 ssh key，然后到github上添加ssh key&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;（5）配置gitee的 ssh key&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;操作和上面的类似，只是把命令换成了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t rsa -C &amp;#34;xxxxxxx@qq.com&amp;#34; -f &amp;#34;id_rsa_gitee&amp;#34;     //生成gitee的SSH Key
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat id_rsa_gitee.pub             //这里是查看gitee的SSHKey（这里注意和github区分一下)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;（6）然后把生成的 ssh key 复制到 gitee，进行添加 ssh key 操作，（操作类似上面的 github 添加 ssh）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4添加-config解决ssh冲突&#34;&gt;4.添加 config解决ssh冲突&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在 .ssh 文件夹路径下 ，执行命令：vi config&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680632707009.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在这里面一个一个输入比较慢，所以先退出，先按键盘的 Esc，输入“   :wq  ”，回车退出然后 C盘 的.shh 文件夹中 找到 并打开 config 文件，将下面的内容复制进 config 文件，保存即可&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1680632728920.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# gitee
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host gitee.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HostName gitee.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PreferredAuthentications publickey
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;IdentityFile ~/.ssh/id_rsa_gitee
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# github
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Host github.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;HostName github.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PreferredAuthentications publickey
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;IdentityFile ~/.ssh/id_rsa_github
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意：上面这个是关键的一步，一定要新创建config文件来解决SSH冲突&lt;/p&gt;
+&lt;h3 id=&#34;5测试&#34;&gt;5.测试&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;执行&lt;code&gt;ssh -T git@github.com&lt;/code&gt;,出现&lt;code&gt;successfully&lt;/code&gt;,则github配置成功。&lt;/li&gt;
+&lt;li&gt;执行&lt;code&gt;ssh -T git@gitee.com&lt;/code&gt;,出现&lt;code&gt;successfully&lt;/code&gt;,则gitee配置成功。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：
+可能会出现下面的内容 （直接输入 &lt;strong&gt;yes&lt;/strong&gt; 即可最终出现&lt;code&gt;successfully&lt;/code&gt;，配置成功）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The authenticity of host &amp;lsquo;gitee.com (212.64.63.190)&amp;rsquo; can&amp;rsquo;t be established.
+ECDSA key fingerprint is SHA256:FQGC9Kn/eye1W8icdBgrQp+KkGYoFgbVr17bmjey0Wc.
+Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>电路实验 on Lee&#39;s Blog</title>
+        <link>https://www.happylee.cn/categories/%E7%94%B5%E8%B7%AF%E5%AE%9E%E9%AA%8C/</link>
+        <description>Recent content in 电路实验 on Lee&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Henry Lee</copyright>
+        <lastBuildDate>Sun, 21 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/%E7%94%B5%E8%B7%AF%E5%AE%9E%E9%AA%8C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>数电实验4：集成定时器555的原理及其应用</title>
+        <link>https://www.happylee.cn/post/signal-electric-4/</link>
+        <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-4/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;温馨提示：&lt;/p&gt;
+&lt;p&gt;1.本次实验需要完成&lt;strong&gt;示波器的3个图像&lt;/strong&gt;，见第二部分“&lt;strong&gt;实验图片&lt;/strong&gt;”&lt;/p&gt;
+&lt;p&gt;2.实验报告中需要&lt;strong&gt;作图&lt;/strong&gt;的部分，见第一部分的第2节“&lt;strong&gt;实验步骤及内容&lt;/strong&gt;”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数电实验4-集成定时器555的原理及其应用&#34;&gt;数电实验4 集成定时器555的原理及其应用&lt;/h1&gt;
+&lt;h3 id=&#34;一实验报告要求&#34;&gt;一、实验报告要求&lt;/h3&gt;
+&lt;h4 id=&#34;1问题回答&#34;&gt;1.问题回答&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230518_200915.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2实验步骤及内容&#34;&gt;2.实验步骤及内容&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230518_200943.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二实验图片&#34;&gt;二、实验图片&lt;/h3&gt;
+&lt;h4 id=&#34;单稳态触发器&#34;&gt;单稳态触发器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;脉冲宽度 Tw=56ms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1684645539342.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;多谐振荡器&#34;&gt;多谐振荡器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;周期 T=180ms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1684645539347.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;施密特触发器&#34;&gt;施密特触发器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;回差电压 ΔU=1.76V&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1684645539345.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>数电实验5：D/A转换器及其应用</title>
+        <link>https://www.happylee.cn/post/signal-electric-5/</link>
+        <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-5/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;温馨提示：&lt;/p&gt;
+&lt;p&gt;1.实验步骤2中表格的测量值应近似于理论值。若&lt;strong&gt;误差太大&lt;/strong&gt;，排除接线问题后，应考虑为&lt;strong&gt;元器件(uA741)烧毁&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2.实验报告要求2中的图像，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数电实验5-da转换器及其应用&#34;&gt;数电实验5 D/A转换器及其应用&lt;/h1&gt;
+&lt;h3 id=&#34;一实验表格理论值&#34;&gt;一、实验表格（理论值）&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/D7811C16FA445561EDABC2117771315D.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二实验图像&#34;&gt;二、实验图像&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/28EFBAA4076034C0AAD22E2C90B1D971.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/7C8FD47C314079C4F39856A799C7C3EA.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;三实验报告要求问题回答&#34;&gt;三、实验报告要求（问题回答）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;D/A转换器有哪几种类型？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;权电阻网络D/A转换器&lt;/li&gt;
+&lt;li&gt;倒T形电阻网络D/A转换器&lt;/li&gt;
+&lt;li&gt;权电流型D/A转换器&lt;/li&gt;
+&lt;li&gt;电阻串联分压式D/A转换器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画出步骤 (3) 观测到的波形&lt;/p&gt;
+&lt;p&gt;即本文&lt;strong&gt;第二部分&lt;/strong&gt;“&lt;strong&gt;实验图像&lt;/strong&gt;”所示，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>数电实验3：集成计数器及其应用</title>
+        <link>https://www.happylee.cn/post/signal-electric-3/</link>
+        <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-3/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;温馨提示：如需实验图片和实验报告表格数据，见本文的&lt;strong&gt;第二部分&lt;/strong&gt;和&lt;strong&gt;第三部分&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;特别感谢：本次实验报告中&lt;strong&gt;第二个问题&lt;/strong&gt;的最终答案，是与&lt;strong&gt;小陈同学&lt;/strong&gt;交流讨论得到的&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/flower.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数电实验3-集成计数器及其应用&#34;&gt;数电实验3 集成计数器及其应用&lt;/h1&gt;
+&lt;h3 id=&#34;一实验报告要求&#34;&gt;一、实验报告要求&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG20230505.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二实验图片&#34;&gt;二、实验图片&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1.译码器CD4511逻辑功能的验证（译码、锁存、消隐、灯测试等）：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/qq_pic_merged_1683207839369.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.计数器74LS162逻辑功能的验证计数、清除、预置、使能及进位等）：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/qq_pic_merged_1683207856695.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;三实验内容及步骤&#34;&gt;三、实验内容及步骤&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230504_214149.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230504_214248.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>数电实验2：触发器及其应用</title>
+        <link>https://www.happylee.cn/post/signal-electric-2/</link>
+        <pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-2/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;温馨提示：需要参考“&lt;strong&gt;实验报告要求&lt;/strong&gt;”处理的，请&lt;strong&gt;直接跳转&lt;/strong&gt;到本文的&lt;strong&gt;第三部分&lt;/strong&gt;即可&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数电实验2-触发器及其应用&#34;&gt;数电实验2 触发器及其应用&lt;/h1&gt;
+&lt;h3 id=&#34;一实验内容及步骤&#34;&gt;一、实验内容及步骤：&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230422_003614.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230422_003632.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二实验步骤5的说明&#34;&gt;二、实验步骤5的说明：&lt;/h3&gt;
+&lt;h5 id=&#34;1理论分析&#34;&gt;1.理论分析&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230422_011844.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;2仿真验证&#34;&gt;2.仿真验证&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/fzdl.gif&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;**注意：**上图中001，即数码管显示为“1”这种情况，漏截图了&lt;/p&gt;
+&lt;p&gt;​			具体的仿真操作，可以参考这篇文章：&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/m0_56830873/article/details/124674719&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Multisim实现D触发器模拟异步计数器&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;三实验报告要求&#34;&gt;三、实验报告要求：&lt;/h3&gt;
+&lt;h4 id=&#34;问题1说明如何设定jk触发器和d触发器的初始状态&#34;&gt;&lt;strong&gt;问题1：说明如何设定JK触发器和D触发器的初始状态&lt;/strong&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;答：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过设置触发器的置1端（SD）和置0端（RD），本次实验中均为低电平有效，来设定触发器的初始状态，完成后保持高电平(逻辑开关打到1)。&lt;/p&gt;
+&lt;p&gt;具体操作为：先将RD,SD接逻辑开关，开关打到1；&lt;/p&gt;
+&lt;p&gt;若要&lt;strong&gt;Qn=0&lt;/strong&gt;，则RD逻辑开关打到0再打到1；&lt;/p&gt;
+&lt;p&gt;若要&lt;strong&gt;Qn=1&lt;/strong&gt;，则SD逻辑开关打到0再打到1。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;问题2根据表227测得的数据分析出该时序电路的逻辑功能&#34;&gt;问题2：根据表2.2.7测得的数据，分析出该时序电路的逻辑功能。&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;答：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;3位异步二进制递增计数器（模8递增计数器）。&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
+        <title>数电实验1：集成逻辑门电路</title>
+        <link>https://www.happylee.cn/post/signal-electric-1/</link>
+        <pubDate>Mon, 10 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-1/</guid>
+        <description>&lt;h1 id=&#34;数电实验1-集成逻辑门电路&#34;&gt;数电实验1 集成逻辑门电路&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230419_190808.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>电路分析基础 实验八</title>
+        <link>https://www.happylee.cn/post/electric-8/</link>
+        <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/electric-8/</guid>
+        <description>&lt;h2 id=&#34;实验8-三相交流电路的研究&#34;&gt;实验8 三相交流电路的研究&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230326_212227.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>电路分析基础 实验七</title>
+        <link>https://www.happylee.cn/post/electric-7/</link>
+        <pubDate>Mon, 20 Mar 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/electric-7/</guid>
+        <description>&lt;h2 id=&#34;实验7-rl串联电路及功率因素提高的研究&#34;&gt;实验7 RL串联电路及功率因素提高的研究&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/IMG_20230316_193233.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

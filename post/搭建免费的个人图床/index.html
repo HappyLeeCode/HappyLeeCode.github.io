@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='平时将写完的博客部署到网上后，我们时常会发现文章里面的图片加载起来可能很慢，这与我们的图片访问路径在网站文件目录的本地有关。经过查找相关资料，我找到一个比较好的解决方案：即创建我们个人的图床。这时，我们将图片传到图库上后，文章里的图片就可以用链接的形式访问，再在网站中打开就会加载很快。'>
+<title>搭建免费的个人图床</title>
+
+<link rel='canonical' href='https://www.happylee.cn/post/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/'>
+
+<link rel="stylesheet" href="/scss/style.min.afa623dfb9682b431496282473b3cd5704dfb51f22d0d528a89d9d56858188d7.css"><meta property='og:title' content='搭建免费的个人图床'>
+<meta property='og:description' content='平时将写完的博客部署到网上后，我们时常会发现文章里面的图片加载起来可能很慢，这与我们的图片访问路径在网站文件目录的本地有关。经过查找相关资料，我找到一个比较好的解决方案：即创建我们个人的图床。这时，我们将图片传到图库上后，文章里的图片就可以用链接的形式访问，再在网站中打开就会加载很快。'>
+<meta property='og:url' content='https://www.happylee.cn/post/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/'>
+<meta property='og:site_name' content='Lee&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='PicGo' /><meta property='article:published_time' content='2023-04-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-02T00:00:00&#43;00:00'/><meta property='og:image' content='https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/default.jpg' />
+<meta name="twitter:title" content="搭建免费的个人图床">
+<meta name="twitter:description" content="平时将写完的博客部署到网上后，我们时常会发现文章里面的图片加载起来可能很慢，这与我们的图片访问路径在网站文件目录的本地有关。经过查找相关资料，我找到一个比较好的解决方案：即创建我们个人的图床。这时，我们将图片传到图库上后，文章里的图片就可以用链接的形式访问，再在网站中打开就会加载很快。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/default.jpg' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#原理">原理：</a></li>
+    <li><a href="#操作">操作：</a></li>
+    <li><a href="#最后">最后：</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/default.jpg" loading="lazy" alt="Featured image of post 搭建免费的个人图床" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%9B%BE%E5%BA%8A/" >
+                图床
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/">搭建免费的个人图床</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            平时将写完的博客部署到网上后，我们时常会发现文章里面的图片加载起来可能很慢，这与我们的图片访问路径在网站文件目录的本地有关。经过查找相关资料，我找到一个比较好的解决方案：即创建我们个人的图床。这时，我们将图片传到图库上后，文章里的图片就可以用链接的形式访问，再在网站中打开就会加载很快。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 02, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>注意：本篇文章中<strong>PicGo+Vika</strong>搭建图床的方案目前<strong>暂时失效</strong>，详情可以查看我<strong>置顶的网站更新公告</strong>文章。</p>
+<p>​			现在，我已经采用<strong>PicGo+GitHub</strong>搭建图床的方案，具体的也可以参考<strong>更新公告中的内容</strong>。</p>
+</blockquote>
+<hr>
+<h2 id="原理">原理：</h2>
+<p>利用PicGo+Vika // PicGo+GitHub实现个人图床的搭建</p>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>PicGo在安装前，需要先安装<strong>node.js</strong>环境（可在本网站“<strong>资源</strong>”板块获取）；</li>
+<li>下面关于PicGo的下载地址有两个，第二个为GitHub上的，受网络影响可能无法正常打开，推荐在<strong>第一个</strong>链接访问并下载；</li>
+<li>PicGo的不同版本，可能<strong>兼容性</strong>和<strong>效果</strong>不同，博主安装的是<strong>V2.3.1</strong>版本</li>
+</ol>
+</blockquote>
+<p>PicGo官方下载地址：</p>
+<ul>
+<li><a class="link" href="http://cpasion-docs.gitee.io/picgo-doc/"  target="_blank" rel="noopener"
+    >http://cpasion-docs.gitee.io/picgo-doc/</a>   （Gitee平台，推荐）</li>
+<li><a class="link" href="https://github.com/Molunerfinn/PicGo"  target="_blank" rel="noopener"
+    >https://github.com/Molunerfinn/PicGo</a>    （GitHub）</li>
+</ul>
+<p>vika官网：</p>
+<ul>
+<li><a class="link" href="https://vika.cn/"  target="_blank" rel="noopener"
+    >https://vika.cn/</a></li>
+</ul>
+<p>GitHub官网：</p>
+<ul>
+<li><a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >https://github.com/</a></li>
+</ul>
+<hr>
+<h2 id="操作">操作：</h2>
+<p>这里，我推荐一个B站UP主<a class="link" href="https://space.bilibili.com/67268239"  target="_blank" rel="noopener"
+    ><strong>佳豪君z</strong></a>的视频：</p>
+<iframe height=450 width=800 src="//player.bilibili.com/player.html?aid=430194435&bvid=BV18G411G7ah&cid=823655311&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<hr>
+<h2 id="最后">最后：</h2>
+<blockquote>
+<p>受vika平台后续运营和更新影响，此种搭建图床的方法有可能会失效，不一定仍然适用，具体还请结合实际情况而定！</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/picgo/">PicGo</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/mytwikoo.happylee.cn\/.netlify\/functions\/twikoo',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Henry Lee
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

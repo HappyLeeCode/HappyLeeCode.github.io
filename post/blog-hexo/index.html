@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='你也想拥有一个属于自己的个人博客网站吗？不妨阅读本篇文章，根据教程上的指示，动手写一个自己的个人博客网站吧！'>
+<title>入门搭建个人博客教程（Hexo篇）</title>
+
+<link rel='canonical' href='https://www.happylee.cn/post/blog-hexo/'>
+
+<link rel="stylesheet" href="/scss/style.min.afa623dfb9682b431496282473b3cd5704dfb51f22d0d528a89d9d56858188d7.css"><meta property='og:title' content='入门搭建个人博客教程（Hexo篇）'>
+<meta property='og:description' content='你也想拥有一个属于自己的个人博客网站吗？不妨阅读本篇文章，根据教程上的指示，动手写一个自己的个人博客网站吧！'>
+<meta property='og:url' content='https://www.happylee.cn/post/blog-hexo/'>
+<meta property='og:site_name' content='Lee&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Hexo' /><meta property='article:published_time' content='2023-03-16T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-03-16T00:00:00&#43;00:00'/><meta property='og:image' content='https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/hexo.png' />
+<meta name="twitter:title" content="入门搭建个人博客教程（Hexo篇）">
+<meta name="twitter:description" content="你也想拥有一个属于自己的个人博客网站吗？不妨阅读本篇文章，根据教程上的指示，动手写一个自己的个人博客网站吧！"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/hexo.png' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一准备工作">一、准备工作</a></li>
+    <li><a href="#二检查工作">二、检查工作</a>
+      <ol>
+        <li><a href="#检验是否成功安装">检验是否成功安装</a></li>
+        <li><a href="#依次输入下面的指令并回车注意输入空格"><strong>依次输入下面的指令并回车：（注意输入空格）</strong></a>
+          <ol>
+            <li><a href="#nodejs-的检查">node.js 的检查</a></li>
+            <li><a href="#npm的检查">npm的检查</a></li>
+            <li><a href="#git-的检查">Git 的检查</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#三博客框架hexo的安装">三、博客框架——Hexo的安装</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#0可选项推荐安装之前可以先设置一下淘宝镜像加速器">0.（可选项）推荐安装之前可以先设置一下淘宝镜像加速器</a></li>
+            <li><a href="#1全局安装框架">1.全局安装框架</a></li>
+            <li><a href="#2创建你的博客目录">2.创建你的博客目录</a></li>
+            <li><a href="#3进入你的博客文件">3.进入你的博客文件</a></li>
+            <li><a href="#4复制文件到你博客的目录">4.复制文件到你博客的目录</a></li>
+            <li><a href="#5安装hexo部署插件">5.安装Hexo部署插件</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#四注册gitee推荐或者github账号">四、注册Gitee（推荐）或者GitHub账号</a>
+      <ol>
+        <li><a href="#可以观看下面视频对应部分进行操作"><strong>可以观看下面视频对应部分进行操作：</strong></a></li>
+        <li><a href="#你需要完成好以下工作">你需要完成好以下工作：</a></li>
+      </ol>
+    </li>
+    <li><a href="#五git的配置">五、Git的配置</a>
+      <ol>
+        <li><a href="#设置用户名称">设置用户名称</a></li>
+        <li><a href="#设置用户邮箱">设置用户邮箱</a></li>
+        <li><a href="#生成密钥">生成密钥</a></li>
+      </ol>
+    </li>
+    <li><a href="#六博客-_configyml-文件的配置">六、博客 _config.yml 文件的配置</a></li>
+    <li><a href="#七生成博客网页并部署到gitee上">七、生成博客网页，并部署到Gitee上</a>
+      <ol>
+        <li><a href="#1清理缓存">1、清理缓存</a></li>
+        <li><a href="#2生成静态页面">2、生成静态页面</a></li>
+        <li><a href="#3在本地映射预览">3、在本地映射（预览）</a></li>
+        <li><a href="#4部署推送">4、部署推送</a></li>
+        <li><a href="#5温馨提示">5、温馨提示</a></li>
+      </ol>
+    </li>
+    <li><a href="#八进阶自定义博客主题推荐与配置">八、（进阶）自定义博客主题推荐与配置</a>
+      <ol>
+        <li><a href="#主题一butterfly"><strong>主题一：Butterfly</strong></a></li>
+        <li><a href="#主题二matery"><strong>主题二：Matery</strong></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/blog-hexo/">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/hexo.png" loading="lazy" alt="Featured image of post 入门搭建个人博客教程（Hexo篇）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%8D%9A%E5%AE%A2/" >
+                博客
+            </a>
+        
+            <a href="/categories/%E6%95%99%E7%A8%8B/" >
+                教程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/blog-hexo/">入门搭建个人博客教程（Hexo篇）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            你也想拥有一个属于自己的个人博客网站吗？不妨阅读本篇文章，根据教程上的指示，动手写一个自己的个人博客网站吧！
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 16, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="前言">前言</h1>
+<blockquote>
+<p>欢迎阅读本篇教程！首先说明一点，本教程将适用于所有零基础的电脑小白。因此，在实际操作之前不必感到紧张。同时，由于一小部分操作需要调用命令行，那么遇到命令行或者终端上的报错，也是很正常的。这时不必害怕，放松心态，大不了把前面的命令重输一遍即可。如果还是无法解决，那就复制命令行中的错误提示，在万能的浏览器中搜索即可。总而言之，好事多磨，办法总比困难多！</p>
+</blockquote>
+<hr>
+<p><strong>这里我推荐一个B站Up主  <a class="link" href="https://space.bilibili.com/255947051"  target="_blank" rel="noopener"
+    >火车啦啦</a>  的教学视频</strong>：你可以根据需要，先总的看一下视频做一个初步了解，然后再对照正文里的步骤进行详细操作。</p>
+<iframe height=450 width=800 src="//player.bilibili.com/player.html?aid=969346513&bvid=BV1Np4y1i7r5&cid=228436099&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h1 id="正文">正文</h1>
+<h2 id="一准备工作">一、准备工作</h2>
+<p><strong>（1）必要软件安装</strong>（点击名称即可跳转到各自官网）：</p>
+<ul>
+<li>
+<p><a class="link" href="https://nodejs.cn/download/"  target="_blank" rel="noopener"
+    ><strong>node.js</strong></a>：用于安装后面的博客框架</p>
+</li>
+<li>
+<p><a class="link" href="https://git-scm.com/"  target="_blank" rel="noopener"
+    ><strong>Git</strong></a>：用于后面将网站部署到Gitee或者GitHub上</p>
+</li>
+</ul>
+<p><strong>（2）可选软件</strong>（以下软件只是用于后面配置文件更改以及博客写作，可根据需要安装）：</p>
+<ul>
+<li>
+<p><a class="link" href="https://code.visualstudio.com/Download"  target="_blank" rel="noopener"
+    ><strong>Visual Studio Code</strong></a>：用来打开网站文件中的配置文件</p>
+</li>
+<li>
+<p><a class="link" href="https://www.typora.io/"  target="_blank" rel="noopener"
+    ><strong>Typora</strong></a>：方便写博客文章</p>
+</li>
+</ul>
+<blockquote>
+<p>温馨提示：上述软件均为国外软件，可能受网络影响，无法打开其官方网站。我已经将其安装包，上传至网盘，可根据个人需要，点击本博客网站上面的“资源”板块寻找和下载。最后重申一下，尽量还是自己想办法获取到官方最新版。</p>
+</blockquote>
+<br/>
+<h2 id="二检查工作">二、检查工作</h2>
+<p>我们怎么去查看上面的软件是否安装成功了呢？</p>
+<h3 id="检验是否成功安装">检验是否成功安装</h3>
+<p>用 Win + R 打开运行，输入 cmd ，点击确定：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/1.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>进入cmd控制台：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/3.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="依次输入下面的指令并回车注意输入空格"><strong>依次输入下面的指令并回车：（注意输入空格）</strong></h3>
+<h4 id="nodejs-的检查">node.js 的检查</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">node -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="npm的检查">npm的检查</h4>
+<p>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">npm -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="git-的检查">Git 的检查</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">git --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/2.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>以上有显示版本号，则说明安装成功</p>
+<p>除此之外，我们也需要简单配置一下node.js，可以点击下方链接，<strong>只需要</strong>阅读文章“<strong>Step4：环境配置</strong>”部分，进行操作：</p>
+<ul>
+<li>
+<p>node.js安装及环境配置超详细教程【Windows系统安装包方式】：</p>
+<p><strong><a class="link" href="https://blog.csdn.net/weixin_44893902/article/details/121788104"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/weixin_44893902/article/details/121788104</a></strong></p>
+</li>
+</ul>
+<br/>
+<h2 id="三博客框架hexo的安装">三、博客框架——Hexo的安装</h2>
+<blockquote>
+<p>注意（在下面的方式1和2中任选一个即可）：</p>
+<p>方式1.你可以依然用 Win + R 打开运行，输入 cmd 并进入cmd窗口进行操作（这时，你操作完后面步骤后所生成的myblog文件夹会出现在<strong>默认位置</strong>，一般是<strong>C盘下的用户文件</strong>中，例如我的是C:\Users\Lee&gt;）</p>
+<p>方式2.如果你想把博客文件创建在其他盘，比如D盘，那么只需要在<strong>D盘根目录下</strong>或者<strong>D盘的一个文件夹中</strong>打开cmd后，再进行下面的操作即可。可参考这篇文章：https://blog.csdn.net/weixin_44679832/article/details/123942274</p>
+</blockquote>
+<p>下面操作均在cmd中输入指令完成：</p>
+<h4 id="0可选项推荐安装之前可以先设置一下淘宝镜像加速器">0.（可选项）推荐安装之前可以先设置一下淘宝镜像加速器</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">npm install -g cnpm --registry=https://registry.npm.taobao.org
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="1全局安装框架">1.全局安装框架</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">npm install hexo-cli -g
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2创建你的博客目录">2.创建你的博客目录</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">hexo init 你博客的文件夹名字   (比如：hexo init myblog)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3进入你的博客文件">3.进入你的博客文件</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="k">cd</span> 你博客的文件夹名字   (比如：cd myblog)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4复制文件到你博客的目录">4.复制文件到你博客的目录</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">npm install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="5安装hexo部署插件">5.安装Hexo部署插件</h4>
+<p>（此步骤用于安装本地部署插件，如果<strong>遗漏</strong>会造成后面 <strong>hexo deploy</strong>出错）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">npm install hexo-deployer-git --save
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br/>
+<h2 id="四注册gitee推荐或者github账号">四、注册Gitee（推荐）或者GitHub账号</h2>
+<blockquote>
+<p>点击下面网站名称，即可跳转到对应官网</p>
+</blockquote>
+<p><a class="link" href="https://gitee.com/"  target="_blank" rel="noopener"
+    ><strong>Gitee</strong></a>（码云）：简单地说，这是一个国内的代码托管网站，而我们将本地的博客网页文件部署上传到Gitee后，此时Gitee就相当于服务器的功能，继而就可以实现把博客网站发送到网络上，让别人也可以访问。</p>
+<p><a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    ><strong>GitHub</strong></a>：简单的说，你可以理解为国外的代码托管网站，由于网络波动或者限制，本次搭建博客并不推荐。但是对于想在技术上继续研究和学习的同学来讲，强烈建议了解和入手！</p>
+<h3 id="可以观看下面视频对应部分进行操作"><strong>可以观看下面视频对应部分进行操作：</strong></h3>
+<ul>
+<li><strong>使用Gitee的小伙伴（重点观看注册和pages服务部分）：</strong></li>
+</ul>
+<p>【使用Hexo和码云Gitee免费搭建个人博客保姆级建站教程】 <a class="link" href="https://www.bilibili.com/video/BV1Np4y1i7r5/?share_source=copy_web&amp;vd_source=d67e16cc6c93f4efcf3a7a037720b2af"  target="_blank" rel="noopener"
+    >https://www.bilibili.com/video/BV1Np4y1i7r5/?share_source=copy_web&vd_source=d67e16cc6c93f4efcf3a7a037720b2af</a></p>
+<ul>
+<li><strong>使用GitHub的小伙伴（只需要看前面部分）：</strong></li>
+</ul>
+<p>【hexo搭建个人博客超简单效果超好的个人网站博客搭建对小白很友好】 <a class="link" href="https://www.bilibili.com/video/BV1Rt4y1k7it/?p=2&amp;share_source=copy_web&amp;vd_source=d67e16cc6c93f4efcf3a7a037720b2af"  target="_blank" rel="noopener"
+    >https://www.bilibili.com/video/BV1Rt4y1k7it/?p=2&share_source=copy_web&vd_source=d67e16cc6c93f4efcf3a7a037720b2af</a></p>
+<h3 id="你需要完成好以下工作">你需要完成好以下工作：</h3>
+<p><strong>1.注册账号</strong></p>
+<p><strong>2.创建仓库并设置（视频里有注意事项）</strong></p>
+<p>3.实名认证，打开Git Pages服务（使用Gitee的需要）</p>
+<br/>
+<h2 id="五git的配置">五、Git的配置</h2>
+<p>用 Win + R 打开运行，输入 cmd 并进入cmd</p>
+<h3 id="设置用户名称">设置用户名称</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git config --global user.name &#34;用户名&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="设置用户邮箱">设置用户邮箱</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git config --global user.email &#34;用户邮箱&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="生成密钥">生成密钥</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ssh-keygen -t rsa -C &#34;用户邮箱&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上代码执行之后，会让你设置密码，推荐一个都不要设置，直接连按三次回车键。</p>
+<p>然后，按照视频中的步骤，将本地生成的ssh密钥填写到gitee或者github平台上对应的位置。</p>
+<br/>
+<h2 id="六博客-_configyml-文件的配置">六、博客 _config.yml 文件的配置</h2>
+<p>打开你博客根目录的 _config.yml 文件，将一下信息添加到里面去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">git</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l">https://gitee.com/xxxx/xxxx.git   </span><span class="w"> </span><span class="c">#替换成你自己仓库的HTTP URL地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>【注意区分】你博客根目录的 _config.yml 文件，和主题根目录的 _config.yml 文件！</p>
+<br/>
+<h2 id="七生成博客网页并部署到gitee上">七、生成博客网页，并部署到Gitee上</h2>
+<p>在你的博客文件的根目录下打开cmd控制台</p>
+<h3 id="1清理缓存">1、清理缓存</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hexo cl
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>hexo cl 是 hexo clean 的简写</p>
+<h3 id="2生成静态页面">2、生成静态页面</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hexo g
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>hexo g 是 hexo generate 的简写</p>
+<h3 id="3在本地映射预览">3、在本地映射（预览）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hexo s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>hexo s 是 hexo server 的简写</p>
+<p>可以在浏览器中访问此时命令行中出现的链接，即可预览生成的博客页面：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/20230430212948.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="4部署推送">4、部署推送</h3>
+<blockquote>
+<ul>
+<li>
+<p>上面生成的博客页面确认无误后，在命令行中按CTRL+C结束本地预览，接着可执行下一步</p>
+</li>
+<li>
+<p>第一次部署推送过程中，会弹出Gitee登陆提示，填写好你的账号和密码即可</p>
+</li>
+</ul>
+<p>（如果你采用的是github部署，最好先挂上一个加速器，再执行下面的部署命令。如此，就可以稳定地在浏览器中，选择登陆和验证你的github账号）</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hexo d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>hexo d 是 hexo deploy 的简写</p>
+<p>部署成功如下图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/hexodeploytupian.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>此时，你当初为博客创建的Gitee仓库中就会更新</p>
+<p><img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/giteeekkkkkk.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>按照视频的教程，启用Gitee Pages服务，完成配置和更新，继而就可以通过Gitee为你分配的链接访问你的博客了</p>
+<p>至此，恭喜你，我们的博客网站基本搭建完毕了！</p>
+<h3 id="5温馨提示">5、温馨提示</h3>
+<p>以上连写：示例一（清理缓存 + 生成静态页面 + 在本地预览）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">hexo cl <span class="p">&amp;&amp;</span> hexo g <span class="p">&amp;&amp;</span> hexo s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上连写：示例二（清理缓存 + 生成静态页面 + 部署推送）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">hexo cl <span class="p">&amp;&amp;</span> hexo g <span class="p">&amp;&amp;</span> hexo d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><br/>
+<h2 id="八进阶自定义博客主题推荐与配置">八、（进阶）自定义博客主题推荐与配置</h2>
+<h3 id="主题一butterfly"><strong>主题一：Butterfly</strong></h3>
+<p>这里我推荐一下我所使用的主题：<a class="link" href="https://butterfly.js.org/"  target="_blank" rel="noopener"
+    ><strong>Butterfly</strong> - A Simple and Card UI Design theme for Hexo</a>（点击即可访问）</p>
+<p>你可以滑动一下主页后，在右下角出现的齿轮按钮中，调整成简体中文模式</p>
+<p>然后再仔细阅读其网页中”文档“板块，进行设置，DIY出属于你的独一无二博客网站啦！</p>
+<p>主题示例：
+<img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/RV%7B39%603K404GY%60G~IQ%7BOKUK.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="主题二matery"><strong>主题二：Matery</strong></h3>
+<p>参考网站：<a class="link" href="https://www.lixl.cn/2019/092856736.html"  target="_blank" rel="noopener"
+    >https://www.lixl.cn/2019/092856736.html</a></p>
+<p>主题示例：
+<img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/ghffsAA.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hexo/">Hexo</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/post/butterfly-loading/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/loading.png" loading="lazy" data-key="butterfly-loading" data-hash="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/loading.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">一款基于Butterfly主题的loading动画</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/mytwikoo.happylee.cn\/.netlify\/functions\/twikoo',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 Henry Lee
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

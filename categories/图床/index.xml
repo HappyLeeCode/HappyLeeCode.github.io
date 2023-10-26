@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>图床 on Lee&#39;s Blog</title>
+        <link>https://www.happylee.cn/categories/%E5%9B%BE%E5%BA%8A/</link>
+        <description>Recent content in 图床 on Lee&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Henry Lee</copyright>
+        <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>搭建免费的个人图床</title>
+        <link>https://www.happylee.cn/post/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/</link>
+        <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/</guid>
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/default.jpg" alt="Featured image of post 搭建免费的个人图床" /&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：本篇文章中&lt;strong&gt;PicGo+Vika&lt;/strong&gt;搭建图床的方案目前&lt;strong&gt;暂时失效&lt;/strong&gt;，详情可以查看我&lt;strong&gt;置顶的网站更新公告&lt;/strong&gt;文章。&lt;/p&gt;
+&lt;p&gt;​			现在，我已经采用&lt;strong&gt;PicGo+GitHub&lt;/strong&gt;搭建图床的方案，具体的也可以参考&lt;strong&gt;更新公告中的内容&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;原理&#34;&gt;原理：&lt;/h2&gt;
+&lt;p&gt;利用PicGo+Vika // PicGo+GitHub实现个人图床的搭建&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;PicGo在安装前，需要先安装&lt;strong&gt;node.js&lt;/strong&gt;环境（可在本网站“&lt;strong&gt;资源&lt;/strong&gt;”板块获取）；&lt;/li&gt;
+&lt;li&gt;下面关于PicGo的下载地址有两个，第二个为GitHub上的，受网络影响可能无法正常打开，推荐在&lt;strong&gt;第一个&lt;/strong&gt;链接访问并下载；&lt;/li&gt;
+&lt;li&gt;PicGo的不同版本，可能&lt;strong&gt;兼容性&lt;/strong&gt;和&lt;strong&gt;效果&lt;/strong&gt;不同，博主安装的是&lt;strong&gt;V2.3.1&lt;/strong&gt;版本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;PicGo官方下载地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://cpasion-docs.gitee.io/picgo-doc/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://cpasion-docs.gitee.io/picgo-doc/&lt;/a&gt;   （Gitee平台，推荐）&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/Molunerfinn/PicGo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/Molunerfinn/PicGo&lt;/a&gt;    （GitHub）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vika官网：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://vika.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://vika.cn/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;GitHub官网：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;操作&#34;&gt;操作：&lt;/h2&gt;
+&lt;p&gt;这里，我推荐一个B站UP主&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/67268239&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;佳豪君z&lt;/strong&gt;&lt;/a&gt;的视频：&lt;/p&gt;
+&lt;iframe height=450 width=800 src=&#34;//player.bilibili.com/player.html?aid=430194435&amp;bvid=BV18G411G7ah&amp;cid=823655311&amp;page=1&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;&gt; &lt;/iframe&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;最后&#34;&gt;最后：&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;受vika平台后续运营和更新影响，此种搭建图床的方法有可能会失效，不一定仍然适用，具体还请结合实际情况而定！&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>51单片机 on Lee&#39;s Blog</title>
+        <link>https://www.happylee.cn/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/</link>
+        <description>Recent content in 51单片机 on Lee&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Henry Lee</copyright>
+        <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>51单片机入门</title>
+        <link>https://www.happylee.cn/post/51-mcu/</link>
+        <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/51-mcu/</guid>
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/stc51.png" alt="Featured image of post 51单片机入门" /&gt;&lt;blockquote&gt;
+&lt;p&gt;写在前面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;当你准备学习单片机知识时，欢迎你开始步入神奇的电子技术世界！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;本系列文章是我学习单片机开发的路线笔记，并将会持续不定期更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果你在阅读文章中有任何不懂的问题，或者发现文章中一些错误的地方&lt;/p&gt;
+&lt;p&gt;欢迎在下方评论区，与我联系和讨论！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;前言&#34;&gt;前言：&lt;/h1&gt;
+&lt;p&gt;在正式开始了解和接触单片机之前，你&lt;strong&gt;最好&lt;/strong&gt;应具备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;学习过&lt;strong&gt;C语言&lt;/strong&gt;，掌握C语言中的一些基本语法，有一定的编程基础&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;学习过&lt;strong&gt;模电&lt;/strong&gt;和&lt;strong&gt;数电&lt;/strong&gt;，或者有一定的相关了解和基础（尤其是数电）&lt;/p&gt;
+&lt;p&gt;如果你没有学过模电和数电，也没有关系&lt;/p&gt;
+&lt;p&gt;这里推荐一个科普课程：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1EW411u7th/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=4391f3e2849f62b9231a5b89eeca0660&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;计算机科学速成课&lt;/strong&gt;&lt;/a&gt;（只需要看前10节就行，每节时长只有10分钟左右）&lt;/p&gt;
+&lt;p&gt;看完之后，将会对后续单片机的学习有更好的促进作用！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;正文&#34;&gt;正文：&lt;/h1&gt;
+&lt;h2 id=&#34;一单片机介绍&#34;&gt;一、单片机介绍&lt;/h2&gt;
+&lt;p&gt;•单片机，英文Micro Controller Unit，简称MCU&lt;/p&gt;
+&lt;p&gt;•内部集成了CPU、RAM、ROM、定时器、中断系统、通讯接口等一系列电脑的常用硬件功能&lt;/p&gt;
+&lt;p&gt;•单片机的任务是信息采集（依靠传感器）、处理（依靠CPU）和硬件设备（例如电机，LED等）的控制&lt;/p&gt;
+&lt;p&gt;•单片机跟计算机相比，单片机算是一个袖珍版计算机，一个芯片就能构成完整的计算机系统。但在性能上，与计算机相差甚远，但单片机成本低、体积小、结构简单，在生活和工业控制领域大有所用&lt;/p&gt;
+&lt;p&gt;•&lt;strong&gt;同时，学习使用单片机是了解计算机原理与结构的最佳选择&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二什么是51单片机为什么叫51单片机&#34;&gt;二、什么是51单片机/为什么叫51单片机？&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;51单片机是对兼容&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e8%8b%b1%e7%89%b9%e5%b0%94/305730?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;英特尔&lt;/a&gt;8051&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e6%8c%87%e4%bb%a4%e7%b3%bb%e7%bb%9f/3220297?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;指令系统&lt;/a&gt;的&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e5%8d%95%e7%89%87%e6%9c%ba/102396?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;单片机&lt;/a&gt;的统称。正是因为这个“8051”有个51,所以凡是与“8051”内核一样的单片机都统称为51系列单片机。&lt;/li&gt;
+&lt;li&gt;51单片机广泛应用于家用电器、汽车、工业测控、&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e9%80%9a%e4%bf%a1%e8%ae%be%e5%a4%87/10476282?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;通信设备&lt;/a&gt;中。因为51单片机的&lt;a class=&#34;link&#34; href=&#34;https://baike.baidu.com/item/%e6%8c%87%e4%bb%a4%e7%b3%bb%e7%bb%9f/3220297?fromModule=lemma_inlink&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;指令系统&lt;/a&gt;、内部结构相对简单，所以国内许多高校用其进行单片机入门教学。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;三开发工具&#34;&gt;三、开发工具&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;开发软件&lt;strong&gt;Keil5C51&lt;/strong&gt;——用于编写单片机程序&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/stm32u5.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;烧录软件&lt;strong&gt;stc-isp&lt;/strong&gt;——用于将写好的程序下载到单片机上&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/stm32.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;普中&lt;a class=&#34;link&#34; href=&#34;https://so.csdn.net/so/search?q=51%e5%8d%95%e7%89%87%e6%9c%ba&amp;amp;spm=1001.2101.3001.7020&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;51单片机&lt;/a&gt;&lt;strong&gt;开发板&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;​		上面除了有STC89C51芯片(即51单片机)以外，另外在开发板上还集成有数码管、LED灯管、蜂鸣器等模块，方便我们学习单片机时，来调用和实现一些功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/%7dD6%7dPGS%60XT8%7bOM7NO9%7d6D_M.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/img/M1RZTV2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;四推荐教程视频&#34;&gt;四、推荐教程视频&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;B站：&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Mb411e7re/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=4391f3e2849f62b9231a5b89eeca0660&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;江协科技  51单片机入门教程-2020版 程序全程纯手打 从零开始入门&lt;/a&gt;（原江科大自化协51单片机教程视频）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;五后续更新&#34;&gt;五、后续更新&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;我会不定期更新自己在学习51单片机过程中的学习笔记和心得体会，并上传相关的实验操作代码和数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;欢迎感兴趣的同学，与我交流学习，我们共同进步！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;本系列文章未完待续，请关注留意！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
