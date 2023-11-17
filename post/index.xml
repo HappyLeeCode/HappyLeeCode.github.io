@@ -7,13 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Henry Lee</copyright>
-        <lastBuildDate>Sun, 10 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>置顶：关于本站</title>
         <link>https://www.happylee.cn/post/about-blog/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/about-blog/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/top.png" alt="Featured image of post 置顶：关于本站" /&gt;&lt;blockquote&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/about-blog/top.png" alt="Featured image of post 置顶：关于本站" /&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;前言&lt;/strong&gt;：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -240,12 +240,50 @@
 </description>
         </item>
         <item>
+        <title>Linux操作系统实验</title>
+        <link>https://www.happylee.cn/post/linuxos-course/</link>
+        <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/linuxos-course/</guid>
+        <description>&lt;img src="https://www.happylee.cn/post/linuxos-course/linux.jpeg" alt="Featured image of post Linux操作系统实验" /&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/li&gt;
+&lt;li&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/li&gt;
+&lt;li&gt;本实验中的Linux运行环境为&lt;strong&gt;Ubuntu-22.04.3-desktop-amd64&lt;/strong&gt;，不同版本下的程序可能有所&lt;strong&gt;差异&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;目录&#34;&gt;目录：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;实验一：熟悉系统命令&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验二：运用C语言函数实现操作系统中文件的读写操作&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验三：熟悉操作系统中进程通信的实例——管道的建立&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;思考题：利用系统调用实现shell功能&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;个人小结&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;实验报告&#34;&gt;实验报告：&lt;/h2&gt;
+
+
+&lt;object
+    data=&#34;./pdf/LinuxOS.pdf#view=Fit&amp;amp;page=1&#34; width=&#34;100%&#34; height=&#34;500px&#34;type=&#34;application/pdf&#34;
+&gt;
+    &lt;p&gt;Unable to display PDF file. &lt;a href=&#34;./pdf/LinuxOS.pdf#view=Fit&amp;amp;page=1&#34;&gt;Download&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/li&gt;
+&lt;li&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>C&#43;&#43;核心编程</title>
         <link>https://www.happylee.cn/post/cpp-core/</link>
         <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/cpp-core/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/CPP-COVER.png" alt="Featured image of post C&#43;&#43;核心编程" /&gt;&lt;h1 id=&#34;c核心编程&#34;&gt;C++核心编程&lt;/h1&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/cpp-core/CPP-COVER.png" alt="Featured image of post C&#43;&#43;核心编程" /&gt;&lt;h1 id=&#34;c核心编程&#34;&gt;C++核心编程&lt;/h1&gt;
 &lt;p&gt;本阶段主要针对C++==面向对象==编程技术做详细讲解，探讨C++中的核心和精髓。&lt;/p&gt;
 &lt;h2 id=&#34;1-内存分区模型&#34;&gt;1 内存分区模型&lt;/h2&gt;
 &lt;p&gt;C++程序在执行时，将内存大方向划分为&lt;strong&gt;4个区域&lt;/strong&gt;&lt;/p&gt;
@@ -6848,7 +6886,6 @@
 &lt;li&gt;
 &lt;p&gt;关闭文件&lt;/p&gt;
 &lt;p&gt;ofs.close();&lt;/p&gt;
-&lt;p&gt;​&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;文件打开方式：&lt;/p&gt;
@@ -7740,7 +7777,7 @@
         <pubDate>Sun, 11 Jun 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/2023.6.11%E5%81%9C%E6%9B%B4%E5%85%AC%E5%91%8A/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/notic.png" alt="Featured image of post 2023.6.11停更公告" /&gt;&lt;h2 id=&#34;now&#34;&gt;NOW&lt;/h2&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/2023.6.11%E5%81%9C%E6%9B%B4%E5%85%AC%E5%91%8A/notic.png" alt="Featured image of post 2023.6.11停更公告" /&gt;&lt;h2 id=&#34;now&#34;&gt;NOW&lt;/h2&gt;
 &lt;p&gt;期末临近，同时我也想放空一下自己，使自己能够更加专注地做好自己当下的事情。无论是课程设计、实验报告，还是结课考试，作为一名学生，我都希望自己能够处理好它们。&lt;strong&gt;因此，我决定暂时停止博客网站内容上的更新。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本次停更时间预计两个月&lt;/strong&gt;。我计划在完成好期末考试后，利用后面的假期时间继续完成有关方面的学习，并努力锤炼和打磨好自己的技术。&lt;/p&gt;
 &lt;br/&gt;
@@ -7765,7 +7802,7 @@
         <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/cpp-base/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/CPP-COVER.png" alt="Featured image of post C&#43;&#43;基础入门" /&gt;&lt;h1 id=&#34;c基础入门&#34;&gt;C++基础入门&lt;/h1&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/cpp-base/CPP-COVER.png" alt="Featured image of post C&#43;&#43;基础入门" /&gt;&lt;h1 id=&#34;c基础入门&#34;&gt;C++基础入门&lt;/h1&gt;
 &lt;h2 id=&#34;1-c初识&#34;&gt;1 C++初识&lt;/h2&gt;
 &lt;h3 id=&#34;11--第一个c程序&#34;&gt;1.1  第一个C++程序&lt;/h3&gt;
 &lt;p&gt;编写一个C++程序总共分为4个步骤&lt;/p&gt;
@@ -12877,15 +12914,15 @@
         </item>
         <item>
         <title>信号与系统实验报告3-4</title>
-        <link>https://www.happylee.cn/post/signal-system/</link>
+        <link>https://www.happylee.cn/post/signal-system-3-4/</link>
         <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://www.happylee.cn/post/signal-system/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/matlab_img.png" alt="Featured image of post 信号与系统实验报告3-4" /&gt;&lt;blockquote&gt;
+        <guid>https://www.happylee.cn/post/signal-system-3-4/</guid>
+        <description>&lt;img src="https://www.happylee.cn/post/signal-system-3-4/matlab_img.png" alt="Featured image of post 信号与系统实验报告3-4" /&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机暂时无法正常显示PDF文档&lt;/p&gt;
+&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/p&gt;
@@ -12917,7 +12954,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机可能无法正常显示上方PDF文档&lt;/p&gt;
+&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/p&gt;
@@ -13055,14 +13092,14 @@
         </item>
         <item>
         <title>信号与系统实验报告1-2</title>
-        <link>https://www.happylee.cn/post/signal-system/</link>
+        <link>https://www.happylee.cn/post/signal-system-1-2/</link>
         <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://www.happylee.cn/post/signal-system/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/matlab_img.png" alt="Featured image of post 信号与系统实验报告1-2" /&gt;&lt;blockquote&gt;
+        <guid>https://www.happylee.cn/post/signal-system-1-2/</guid>
+        <description>&lt;img src="https://www.happylee.cn/post/signal-system-1-2/matlab_img.png" alt="Featured image of post 信号与系统实验报告1-2" /&gt;&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机暂时无法正常显示PDF文档&lt;/li&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/li&gt;
 &lt;li&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/li&gt;
 &lt;li&gt;本实验中的程序运行环境为&lt;strong&gt;Matlab 2016a&lt;/strong&gt;，不同版本下的程序可能有所&lt;strong&gt;差异&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为&lt;/strong&gt;&lt;/li&gt;
@@ -13087,7 +13124,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机可能无法正常显示上方PDF文档&lt;/p&gt;
+&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/p&gt;
@@ -13166,7 +13203,7 @@
         <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/2023.4.25%E7%B4%A7%E6%80%A5%E9%80%9A%E7%9F%A5/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/notic.png" alt="Featured image of post 2023.4.25紧急通知" /&gt;&lt;h2 id=&#34;now&#34;&gt;NOW&lt;/h2&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/2023.4.25%E7%B4%A7%E6%80%A5%E9%80%9A%E7%9F%A5/notic.png" alt="Featured image of post 2023.4.25紧急通知" /&gt;&lt;h2 id=&#34;now&#34;&gt;NOW&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;由于本网站中所显示的图片，采用的是基于vika所搭建的图床。&lt;strong&gt;受vika平台的影响，网站中的嵌入图片无法正常加载和显示&lt;/strong&gt;。目前已经定位该问题，正在全力进行修复。&lt;/p&gt;

@@ -13,7 +13,7 @@
         <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/cpp-core/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/CPP-COVER.png" alt="Featured image of post C&#43;&#43;核心编程" /&gt;&lt;h1 id=&#34;c核心编程&#34;&gt;C++核心编程&lt;/h1&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/cpp-core/CPP-COVER.png" alt="Featured image of post C&#43;&#43;核心编程" /&gt;&lt;h1 id=&#34;c核心编程&#34;&gt;C++核心编程&lt;/h1&gt;
 &lt;p&gt;本阶段主要针对C++==面向对象==编程技术做详细讲解，探讨C++中的核心和精髓。&lt;/p&gt;
 &lt;h2 id=&#34;1-内存分区模型&#34;&gt;1 内存分区模型&lt;/h2&gt;
 &lt;p&gt;C++程序在执行时，将内存大方向划分为&lt;strong&gt;4个区域&lt;/strong&gt;&lt;/p&gt;
@@ -6616,7 +6616,6 @@
 &lt;li&gt;
 &lt;p&gt;关闭文件&lt;/p&gt;
 &lt;p&gt;ofs.close();&lt;/p&gt;
-&lt;p&gt;​&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;文件打开方式：&lt;/p&gt;
@@ -7039,7 +7038,7 @@
         <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/post/cpp-base/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/cover/CPP-COVER.png" alt="Featured image of post C&#43;&#43;基础入门" /&gt;&lt;h1 id=&#34;c基础入门&#34;&gt;C++基础入门&lt;/h1&gt;
+        <description>&lt;img src="https://www.happylee.cn/post/cpp-base/CPP-COVER.png" alt="Featured image of post C&#43;&#43;基础入门" /&gt;&lt;h1 id=&#34;c基础入门&#34;&gt;C++基础入门&lt;/h1&gt;
 &lt;h2 id=&#34;1-c初识&#34;&gt;1 C++初识&lt;/h2&gt;
 &lt;h3 id=&#34;11--第一个c程序&#34;&gt;1.1  第一个C++程序&lt;/h3&gt;
 &lt;p&gt;编写一个C++程序总共分为4个步骤&lt;/p&gt;
