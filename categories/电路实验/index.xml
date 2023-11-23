@@ -7,7 +7,65 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Henry Lee</copyright>
-        <lastBuildDate>Sun, 21 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/%E7%94%B5%E8%B7%AF%E5%AE%9E%E9%AA%8C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 22 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/%E7%94%B5%E8%B7%AF%E5%AE%9E%E9%AA%8C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>数电实验5：D/A转换器及其应用</title>
+        <link>https://www.happylee.cn/post/signal-electric-5/</link>
+        <pubDate>Mon, 22 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-5/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;温馨提示：&lt;/p&gt;
+&lt;p&gt;1.实验步骤2中表格的测量值应近似于理论值。若&lt;strong&gt;误差太大&lt;/strong&gt;，排除接线问题后，应考虑为&lt;strong&gt;元器件(uA741)烧毁&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2.实验报告要求2中的图像，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数电实验5-da转换器及其应用&#34;&gt;数电实验5 D/A转换器及其应用&lt;/h1&gt;
+&lt;h3 id=&#34;一实验表格理论值&#34;&gt;一、实验表格（理论值）&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/D7811C16FA445561EDABC2117771315D.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二实验图像&#34;&gt;二、实验图像&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/28EFBAA4076034C0AAD22E2C90B1D971.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/7C8FD47C314079C4F39856A799C7C3EA.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;三实验报告要求问题回答&#34;&gt;三、实验报告要求（问题回答）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;D/A转换器有哪几种类型？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;权电阻网络D/A转换器&lt;/li&gt;
+&lt;li&gt;倒T形电阻网络D/A转换器&lt;/li&gt;
+&lt;li&gt;权电流型D/A转换器&lt;/li&gt;
+&lt;li&gt;电阻串联分压式D/A转换器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画出步骤 (3) 观测到的波形&lt;/p&gt;
+&lt;p&gt;即本文&lt;strong&gt;第二部分&lt;/strong&gt;“&lt;strong&gt;实验图像&lt;/strong&gt;”所示，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>数电实验4：集成定时器555的原理及其应用</title>
         <link>https://www.happylee.cn/post/signal-electric-4/</link>
         <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
@@ -75,64 +133,6 @@
 	
 	
 &gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>数电实验5：D/A转换器及其应用</title>
-        <link>https://www.happylee.cn/post/signal-electric-5/</link>
-        <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/post/signal-electric-5/</guid>
-        <description>&lt;blockquote&gt;
-&lt;p&gt;温馨提示：&lt;/p&gt;
-&lt;p&gt;1.实验步骤2中表格的测量值应近似于理论值。若&lt;strong&gt;误差太大&lt;/strong&gt;，排除接线问题后，应考虑为&lt;strong&gt;元器件(uA741)烧毁&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;2.实验报告要求2中的图像，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;数电实验5-da转换器及其应用&#34;&gt;数电实验5 D/A转换器及其应用&lt;/h1&gt;
-&lt;h3 id=&#34;一实验表格理论值&#34;&gt;一、实验表格（理论值）&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/D7811C16FA445561EDABC2117771315D.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;二实验图像&#34;&gt;二、实验图像&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/28EFBAA4076034C0AAD22E2C90B1D971.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/7C8FD47C314079C4F39856A799C7C3EA.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;三实验报告要求问题回答&#34;&gt;三、实验报告要求（问题回答）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;D/A转换器有哪几种类型？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;权电阻网络D/A转换器&lt;/li&gt;
-&lt;li&gt;倒T形电阻网络D/A转换器&lt;/li&gt;
-&lt;li&gt;权电流型D/A转换器&lt;/li&gt;
-&lt;li&gt;电阻串联分压式D/A转换器&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;画出步骤 (3) 观测到的波形&lt;/p&gt;
-&lt;p&gt;即本文&lt;strong&gt;第二部分&lt;/strong&gt;“&lt;strong&gt;实验图像&lt;/strong&gt;”所示，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
 </description>
         </item>
         <item>

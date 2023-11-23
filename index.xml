@@ -7772,6 +7772,54 @@
 </description>
         </item>
         <item>
+        <title>基于RDA5807收音模块的FM调频收音机设计</title>
+        <link>https://www.happylee.cn/post/design-fm-radio/</link>
+        <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/design-fm-radio/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/li&gt;
+&lt;li&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;一设计目的&#34;&gt;一、设计目的&lt;/h3&gt;
+&lt;p&gt;通过电子通信设备的组装实习，要求掌握基本的焊接技术，学会元器件识别、测试和安装的方法，掌握万用表的使用方法，掌握电子通信设备的工作原理，学会识别电路原理图与印刷图，学会利用工艺文件独立进行电子通信设备的整机装配、调试方法，并达到产品的质量要求，从而锻炼和提高学生的动手能力，巩固和加深对电子学理论知识的理解和掌握，为以后专业设计、课程设计及毕业设计准备必要的工艺知识和操作技能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过电器的安装制作，熟悉电子仪器的安装制作过程和电路的调试及简单故障排除的技能，能够在安装制作过程中考虑经济因素。&lt;/li&gt;
+&lt;li&gt;能够站在环境保护和可持续发展的角度思考电子信息工程实践的可持续性，正确评价电子产品周期中可能对人类和环境造成的损害和隐患。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二设计任务&#34;&gt;二、设计任务&lt;/h3&gt;
+&lt;p&gt;FM调频收音机电路设计与实现。设计并实现一个基于电子元器件的FM调频收音机，包括收音、解调、放音等功能。具体任务如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设计FM收音电路，实现调频收音功能；设计解调电路，将调频信号转化为模拟音频信号；&lt;/li&gt;
+&lt;li&gt;设计音频放大电路，使音频信号能够放大并输出到扬声器；&lt;/li&gt;
+&lt;li&gt;搭建完整的FM调频收音电路原型，并进行测试和调试，确保其稳定运行；&lt;/li&gt;
+&lt;li&gt;所有元器件的费用不超过100元。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;三实习报告&#34;&gt;三、实习报告&lt;/h3&gt;
+
+
+&lt;object
+    data=&#34;./pdf/%e5%9f%ba%e4%ba%8eRDA5807%e6%94%b6%e9%9f%b3%e6%a8%a1%e5%9d%97%e7%9a%84FM%e8%b0%83%e9%a2%91%e6%94%b6%e9%9f%b3%e6%9c%ba%e8%ae%be%e8%ae%a1.pdf#view=Fit&amp;amp;page=1&#34; width=&#34;100%&#34; height=&#34;500px&#34;type=&#34;application/pdf&#34;
+&gt;
+    &lt;p&gt;Unable to display PDF file. &lt;a href=&#34;./pdf/%e5%9f%ba%e4%ba%8eRDA5807%e6%94%b6%e9%9f%b3%e6%a8%a1%e5%9d%97%e7%9a%84FM%e8%b0%83%e9%a2%91%e6%94%b6%e9%9f%b3%e6%9c%ba%e8%ae%be%e8%ae%a1.pdf#view=Fit&amp;amp;page=1&#34;&gt;Download&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>2023.6.11停更公告</title>
         <link>https://www.happylee.cn/post/2023.6.11%E5%81%9C%E6%9B%B4%E5%85%AC%E5%91%8A/</link>
         <pubDate>Sun, 11 Jun 2023 00:00:00 +0000</pubDate>
@@ -12963,6 +13011,64 @@
 </description>
         </item>
         <item>
+        <title>数电实验5：D/A转换器及其应用</title>
+        <link>https://www.happylee.cn/post/signal-electric-5/</link>
+        <pubDate>Mon, 22 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/signal-electric-5/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;温馨提示：&lt;/p&gt;
+&lt;p&gt;1.实验步骤2中表格的测量值应近似于理论值。若&lt;strong&gt;误差太大&lt;/strong&gt;，排除接线问题后，应考虑为&lt;strong&gt;元器件(uA741)烧毁&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2.实验报告要求2中的图像，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;数电实验5-da转换器及其应用&#34;&gt;数电实验5 D/A转换器及其应用&lt;/h1&gt;
+&lt;h3 id=&#34;一实验表格理论值&#34;&gt;一、实验表格（理论值）&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/D7811C16FA445561EDABC2117771315D.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;二实验图像&#34;&gt;二、实验图像&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/28EFBAA4076034C0AAD22E2C90B1D971.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/7C8FD47C314079C4F39856A799C7C3EA.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;三实验报告要求问题回答&#34;&gt;三、实验报告要求（问题回答）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;D/A转换器有哪几种类型？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;权电阻网络D/A转换器&lt;/li&gt;
+&lt;li&gt;倒T形电阻网络D/A转换器&lt;/li&gt;
+&lt;li&gt;权电流型D/A转换器&lt;/li&gt;
+&lt;li&gt;电阻串联分压式D/A转换器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;画出步骤 (3) 观测到的波形&lt;/p&gt;
+&lt;p&gt;即本文&lt;strong&gt;第二部分&lt;/strong&gt;“&lt;strong&gt;实验图像&lt;/strong&gt;”所示，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>数电实验4：集成定时器555的原理及其应用</title>
         <link>https://www.happylee.cn/post/signal-electric-4/</link>
         <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
@@ -13030,64 +13136,6 @@
 	
 	
 &gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>数电实验5：D/A转换器及其应用</title>
-        <link>https://www.happylee.cn/post/signal-electric-5/</link>
-        <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/post/signal-electric-5/</guid>
-        <description>&lt;blockquote&gt;
-&lt;p&gt;温馨提示：&lt;/p&gt;
-&lt;p&gt;1.实验步骤2中表格的测量值应近似于理论值。若&lt;strong&gt;误差太大&lt;/strong&gt;，排除接线问题后，应考虑为&lt;strong&gt;元器件(uA741)烧毁&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;2.实验报告要求2中的图像，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;数电实验5-da转换器及其应用&#34;&gt;数电实验5 D/A转换器及其应用&lt;/h1&gt;
-&lt;h3 id=&#34;一实验表格理论值&#34;&gt;一、实验表格（理论值）&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/D7811C16FA445561EDABC2117771315D.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;二实验图像&#34;&gt;二、实验图像&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/28EFBAA4076034C0AAD22E2C90B1D971.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/HappyLeeCode/IMG/post/7C8FD47C314079C4F39856A799C7C3EA.jpg&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;三实验报告要求问题回答&#34;&gt;三、实验报告要求（问题回答）&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;D/A转换器有哪几种类型？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;权电阻网络D/A转换器&lt;/li&gt;
-&lt;li&gt;倒T形电阻网络D/A转换器&lt;/li&gt;
-&lt;li&gt;权电流型D/A转换器&lt;/li&gt;
-&lt;li&gt;电阻串联分压式D/A转换器&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;画出步骤 (3) 观测到的波形&lt;/p&gt;
-&lt;p&gt;即本文&lt;strong&gt;第二部分&lt;/strong&gt;“&lt;strong&gt;实验图像&lt;/strong&gt;”所示，&lt;strong&gt;纵坐标轴&lt;/strong&gt;需要&lt;strong&gt;反向&lt;/strong&gt;（具体根据实验老师的要求和提示）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
 </description>
         </item>
         <item>
@@ -14118,45 +14166,45 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/about/</guid>
-        <description>&lt;h2 id=&#34;欢迎来我的个人博客&#34;&gt;欢迎来我的个人博客！&lt;/h2&gt;
+        <description>&lt;h2 id=&#34;写在前面&#34;&gt;写在前面：&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;咱姓李，所以本网站就叫Lee&amp;rsquo;s Blog啦！&lt;/li&gt;
-&lt;li&gt;建站的初期，纯粹是出于个人的爱好，一时兴起，说干就干！&lt;/li&gt;
-&lt;li&gt;当然本博主不是计算机科班出生的，因此很多地方都不懂，真的是一步一步靠着网上的教程，和不断地去百度那些报错提示走过来的&lt;/li&gt;
-&lt;li&gt;现在，看着如今还算顺利上线的小破站，这种感觉真的很奇妙！&lt;/li&gt;
+&lt;li&gt;咱姓李，所以本网站就叫&lt;strong&gt;Lee&amp;rsquo;s Blog&lt;/strong&gt;啦！&lt;/li&gt;
+&lt;li&gt;建站初衷：纯粹是出于个人的爱好，以及那所谓的“技术男的分享欲“吧！&lt;/li&gt;
+&lt;li&gt;当然，本博主并非计算机科班出生的。因此，在刚开始时也有很多地方都不懂，真的是一次又一次地寻找着网上的相关教程，以及不断地去搜索和解决那些层出不穷的代码报错，才走过来的。&lt;/li&gt;
+&lt;li&gt;现在，看着如今已经顺利上线许久的小破站，这种感觉真的很奇妙！&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;我的情况&#34;&gt;我的情况：&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;大学本科：电子信息工程在读&lt;/li&gt;
+&lt;li&gt;大学本科：电子信息工程（在读）&lt;/li&gt;
 &lt;li&gt;我的技能：
 &lt;ul&gt;
-&lt;li&gt;精通C语言，基于C语言的数据结构&lt;/li&gt;
-&lt;li&gt;擅长Office三件套：Word、Excel、PowerPoint（PPT）&lt;/li&gt;
-&lt;li&gt;熟悉GitHub、Gitee的操作&lt;/li&gt;
-&lt;li&gt;基于Typora写作&lt;/li&gt;
-&lt;li&gt;擅长Pr进行视频剪辑&lt;/li&gt;
-&lt;li&gt;了解一些前端知识&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;精通&lt;/del&gt;C/C++，&lt;del&gt;掌握&lt;/del&gt;（基于C语言的）数据结构与算法&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;精通&lt;/del&gt;基于QT的GUI图形界面开发&lt;/li&gt;
+&lt;li&gt;熟悉GitHub、Gitee的基本操作&lt;/li&gt;
+&lt;li&gt;掌握Pr进行视频剪辑，以及基于Typora的文章写作&lt;/li&gt;
+&lt;li&gt;熟悉Office办公软件三件套：Word、Excel、PowerPoint（PPT）&lt;/li&gt;
+&lt;li&gt;了解一些图像算法、人工智能等相关方面的知识&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;学习方向：
 &lt;ul&gt;
-&lt;li&gt;目前：通信工程、数字电路&lt;/li&gt;
-&lt;li&gt;发展：图像处理、机器学习、深度学习&lt;/li&gt;
+&lt;li&gt;目前：数字信号、图像处理&lt;/li&gt;
+&lt;li&gt;发展：计算机视觉、机器学习、深度学习&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;小爱好：
 &lt;ul&gt;
 &lt;li&gt;&lt;del&gt;唱&lt;/del&gt;、&lt;del&gt;跳&lt;/del&gt;、&lt;del&gt;rap&lt;/del&gt;、篮球&lt;/li&gt;
 &lt;li&gt;编程&lt;/li&gt;
-&lt;li&gt;阅读&lt;/li&gt;
+&lt;li&gt;读书&lt;/li&gt;
 &lt;li&gt;电影&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;我的小愿望&#34;&gt;我的小愿望：&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;争取考个不错的研究生吧，再读几年书！&lt;/li&gt;
-&lt;li&gt;技术上更加全面、成熟&lt;/li&gt;
+&lt;li&gt;沉淀：技术上更加全面、成熟；为人方面更加踏实、稳重！&lt;/li&gt;
+&lt;li&gt;逐梦：争取考个不错的研究生吧，再读几年书，圆自己一个名校梦！&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;开源项目&#34;&gt;开源项目：&lt;/h2&gt;
 &lt;ul&gt;
@@ -14166,7 +14214,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
     &gt;&lt;strong&gt;HappyLeeCode&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
-&lt;p&gt;注：本网站所使用&lt;strong&gt;框架 Hexo&lt;/strong&gt;|搭配&lt;strong&gt;主题 Butterfly&lt;/strong&gt;，网页项目已开源&lt;/p&gt;
+&lt;p&gt;注：本网站中的大多数项目，均已在我的GitHub上开源共享，&lt;strong&gt;欢迎fork&lt;/strong&gt;！&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;联系方式&#34;&gt;联系方式：&lt;/h2&gt;
 &lt;ul&gt;
@@ -14178,27 +14226,20 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;鸣谢&#34;&gt;鸣谢：&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;感谢Hexo提供的博客框架支持：https://hexo.io/zh-cn/&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;感谢Butterfly提供的主题支持：https://butterfly.js.org/&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;感谢LiveRe（来必力）提供的评论服务：https://livere.com/&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特别感谢B站UP主：&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/384068749?spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;li&gt;感谢&lt;strong&gt;Hugo&lt;/strong&gt;提供的博客框架支持：https://gohugo.io/&lt;/li&gt;
+&lt;li&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://jimmycai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Jimmy Cai&lt;/a&gt;设计的&lt;strong&gt;Stack&lt;/strong&gt;主题：https://themes.gohugo.io/themes/hugo-theme-stack/&lt;/li&gt;
+&lt;li&gt;感谢&lt;strong&gt;Twikoo&lt;/strong&gt;提供的评论服务：https://twikoo.js.org/&lt;/li&gt;
+&lt;li&gt;特别感谢，一些B站的UP主：&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/384068749?spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;CodeSheep&lt;/strong&gt;&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/255947051?spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;火车啦啦&lt;/strong&gt;&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/12890453?spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;&lt;strong&gt;程序员鱼皮&lt;/strong&gt;&lt;/a&gt;等&lt;/p&gt;
-&lt;p&gt;他们的博客搭建教程的指导！&lt;/p&gt;
-&lt;/li&gt;
+    &gt;&lt;strong&gt;程序员鱼皮&lt;/strong&gt;&lt;/a&gt;等的博客搭建教程，提供的指导！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;最后&#34;&gt;最后&lt;/h2&gt;
+&lt;h2 id=&#34;写在最后&#34;&gt;写在最后：&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;如果你有任何技术上的问题，欢迎在&lt;strong&gt;留言栏&lt;/strong&gt;区交流学习！&lt;/p&gt;
-&lt;p&gt;同时，你也可以通过上面的联系方式与我取得联系，我们一起共同进步！&lt;/p&gt;
+&lt;p&gt;如果你有任何技术上的问题，欢迎在首页&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/projects/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;项目&lt;/strong&gt;&lt;/a&gt;板块下方的&lt;strong&gt;评论区&lt;/strong&gt;交流！&lt;/p&gt;
+&lt;p&gt;当然，你也可以通过上面的联系方式，与我直接取得联系，让我们一起共同进步！&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         </item>
@@ -14216,8 +14257,106 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/projects/</guid>
-        <description>&lt;img src="https://www.happylee.cn/projects/project.png" alt="Featured image of post 项目" /&gt;&lt;h2 id=&#34;本板块正在建设中ing&#34;&gt;本板块正在建设中ing&lt;/h2&gt;
-&lt;h2 id=&#34;敬请期待&#34;&gt;敬请期待!&lt;/h2&gt;
+        <description>&lt;img src="https://www.happylee.cn/projects/project.png" alt="Featured image of post 项目" /&gt;&lt;blockquote&gt;
+&lt;p&gt;本板块分为：&lt;strong&gt;图像处理&lt;/strong&gt;、&lt;strong&gt;实验与仿真&lt;/strong&gt;、&lt;strong&gt;课程设计&lt;/strong&gt;，共三部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tips 可通过右侧目录，实现快速浏览&lt;/li&gt;
+&lt;li&gt;tips 点击小标题，即可跳转到对应页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;h2-align--center第一部分emsp图像处理h2&#34;&gt;&lt;h2 align = &#34;center&#34;&gt;第一部分 图像处理&lt;/h2&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本部分不定期更新，由学习时间和项目周期而定&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;开发环境&#34;&gt;开发环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/linuxos-course/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Linux操作系统实验&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;基于qt的gui编程&#34;&gt;基于QT的GUI编程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;QT入门：计算器的实现&lt;/li&gt;
+&lt;li&gt;QT进阶：实现图像涂色&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数字图像处理算法&#34;&gt;数字图像处理算法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;直方图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;h2-align--center第二部分emsp实验与仿真h2&#34;&gt;&lt;h2 align = &#34;center&#34;&gt;第二部分 实验与仿真&lt;/h2&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;微机原理与应用实验hot-正在更新&#34;&gt;微机原理与应用实验（HOT 正在更新）&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;汇编程序设计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;实验一：DEBUG调试的使用方法&lt;/li&gt;
+&lt;li&gt;实验二：循环结构程序设计&lt;/li&gt;
+&lt;li&gt;实验三：排序结构程序设计&lt;/li&gt;
+&lt;li&gt;实验四：子程序设计&lt;/li&gt;
+&lt;li&gt;实验五：系统功能调用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;硬件原理设计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;实验六：ADC0809模数转换器的应用&lt;/li&gt;
+&lt;li&gt;实验七：8255A可编程并行接口的应用&lt;/li&gt;
+&lt;li&gt;实验八：8255A与ADC0809的综合应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;电路分析实验&#34;&gt;电路分析实验&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/electric-7/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;实验7   RL串联电路及功率因素提高的研究&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/electric-8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;实验8   三相交流电路的研究 &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数字电路实验&#34;&gt;数字电路实验&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-electric-1/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数电实验1：集成逻辑门电路&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-electric-2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数电实验2：触发器及其应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-electric-3/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数电实验3：集成计数器及其应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-electric-4/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数电实验4：集成定时器555的原理及其应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-electric-5/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数电实验5：D/A转换器及其应用&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;信号与系统仿真&#34;&gt;信号与系统仿真&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;实验报告&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-system-1-2/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;信号与系统实验报告（实验一、二）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/signal-system-3-4/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;信号与系统实验报告（实验三、四）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;程序代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://gitee.com/HappyLeeCode/Signals-and-Systems&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;码云（推荐）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Signals-and-Systems&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数字信号处理仿真&#34;&gt;数字信号处理仿真&lt;/h3&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h2 id=&#34;h2-align--center第三部分emsp课程设计h2&#34;&gt;&lt;h2 align = &#34;center&#34;&gt;第三部分 课程设计&lt;/h2&gt;&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;电子工艺实习&#34;&gt;电子工艺实习&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;基于RDA5807收音模块的FM调频收音机设计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/br&gt;
+&lt;/br&gt;
 </description>
         </item>
         <item>
@@ -14227,29 +14366,9 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
         
         <guid>https://www.happylee.cn/links/</guid>
         <description>&lt;blockquote&gt;
-&lt;p&gt;欢迎访问“&lt;strong&gt;友情链接&lt;/strong&gt;”板块！&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在此，对搭建本博客中所采用到的平台支持以及个人帮助，致以感谢！&lt;/li&gt;
-&lt;li&gt;同时，您可以在后面“&lt;strong&gt;分享&lt;/strong&gt;”部分，展示您的个人网站！&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;在此，对搭建本博客中所采用到的平台支持以及个人帮助，致以感谢！&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;links&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;- &lt;span class=&#34;nt&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;description&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.com&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
+</description>
         </item>
         
     </channel>

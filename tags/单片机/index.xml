@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>单片机 on Lee&#39;s Blog</title>
+        <link>https://www.happylee.cn/tags/%E5%8D%95%E7%89%87%E6%9C%BA/</link>
+        <description>Recent content in 单片机 on Lee&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Henry Lee</copyright>
+        <lastBuildDate>Wed, 05 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/tags/%E5%8D%95%E7%89%87%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>基于RDA5807收音模块的FM调频收音机设计</title>
+        <link>https://www.happylee.cn/post/design-fm-radio/</link>
+        <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/design-fm-radio/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/li&gt;
+&lt;li&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;一设计目的&#34;&gt;一、设计目的&lt;/h3&gt;
+&lt;p&gt;通过电子通信设备的组装实习，要求掌握基本的焊接技术，学会元器件识别、测试和安装的方法，掌握万用表的使用方法，掌握电子通信设备的工作原理，学会识别电路原理图与印刷图，学会利用工艺文件独立进行电子通信设备的整机装配、调试方法，并达到产品的质量要求，从而锻炼和提高学生的动手能力，巩固和加深对电子学理论知识的理解和掌握，为以后专业设计、课程设计及毕业设计准备必要的工艺知识和操作技能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过电器的安装制作，熟悉电子仪器的安装制作过程和电路的调试及简单故障排除的技能，能够在安装制作过程中考虑经济因素。&lt;/li&gt;
+&lt;li&gt;能够站在环境保护和可持续发展的角度思考电子信息工程实践的可持续性，正确评价电子产品周期中可能对人类和环境造成的损害和隐患。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;二设计任务&#34;&gt;二、设计任务&lt;/h3&gt;
+&lt;p&gt;FM调频收音机电路设计与实现。设计并实现一个基于电子元器件的FM调频收音机，包括收音、解调、放音等功能。具体任务如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设计FM收音电路，实现调频收音功能；设计解调电路，将调频信号转化为模拟音频信号；&lt;/li&gt;
+&lt;li&gt;设计音频放大电路，使音频信号能够放大并输出到扬声器；&lt;/li&gt;
+&lt;li&gt;搭建完整的FM调频收音电路原型，并进行测试和调试，确保其稳定运行；&lt;/li&gt;
+&lt;li&gt;所有元器件的费用不超过100元。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;三实习报告&#34;&gt;三、实习报告&lt;/h3&gt;
+
+
+&lt;object
+    data=&#34;./pdf/%e5%9f%ba%e4%ba%8eRDA5807%e6%94%b6%e9%9f%b3%e6%a8%a1%e5%9d%97%e7%9a%84FM%e8%b0%83%e9%a2%91%e6%94%b6%e9%9f%b3%e6%9c%ba%e8%ae%be%e8%ae%a1.pdf#view=Fit&amp;amp;page=1&#34; width=&#34;100%&#34; height=&#34;500px&#34;type=&#34;application/pdf&#34;
+&gt;
+    &lt;p&gt;Unable to display PDF file. &lt;a href=&#34;./pdf/%e5%9f%ba%e4%ba%8eRDA5807%e6%94%b6%e9%9f%b3%e6%a8%a1%e5%9d%97%e7%9a%84FM%e8%b0%83%e9%a2%91%e6%94%b6%e9%9f%b3%e6%9c%ba%e8%ae%be%e8%ae%a1.pdf#view=Fit&amp;amp;page=1&#34;&gt;Download&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
