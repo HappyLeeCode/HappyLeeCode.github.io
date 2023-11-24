@@ -21,14 +21,14 @@
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/about/</guid>
-        <description>&lt;h2 id=&#34;写在前面&#34;&gt;写在前面：&lt;/h2&gt;
+        <description>&lt;img src="https://www.happylee.cn/about/about.jpg" alt="Featured image of post 关于" /&gt;&lt;h2 id=&#34;-写在前面&#34;&gt;✍️ 写在前面&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;咱姓李，所以本网站就叫&lt;strong&gt;Lee&amp;rsquo;s Blog&lt;/strong&gt;啦！&lt;/li&gt;
 &lt;li&gt;建站初衷：纯粹是出于个人的爱好，以及那所谓的“技术男的分享欲“吧！&lt;/li&gt;
 &lt;li&gt;当然，本博主并非计算机科班出生的。因此，在刚开始时也有很多地方都不懂，真的是一次又一次地寻找着网上的相关教程，以及不断地去搜索和解决那些层出不穷的代码报错，才走过来的。&lt;/li&gt;
 &lt;li&gt;现在，看着如今已经顺利上线许久的小破站，这种感觉真的很奇妙！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;我的情况&#34;&gt;我的情况：&lt;/h2&gt;
+&lt;h2 id=&#34;-我的情况&#34;&gt;✅ 我的情况&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;大学本科：电子信息工程（在读）&lt;/li&gt;
 &lt;li&gt;我的技能：
@@ -56,12 +56,12 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;我的小愿望&#34;&gt;我的小愿望：&lt;/h2&gt;
+&lt;h2 id=&#34;-我的小愿望&#34;&gt;🚀 我的小愿望&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;沉淀：技术上更加全面、成熟；为人方面更加踏实、稳重！&lt;/li&gt;
 &lt;li&gt;逐梦：争取考个不错的研究生吧，再读几年书，圆自己一个名校梦！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;开源项目&#34;&gt;开源项目：&lt;/h2&gt;
+&lt;h2 id=&#34;-开源项目&#34;&gt;📂 开源项目&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;GitHub：&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;HappyLeeCode&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -71,7 +71,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;注：本网站中的大多数项目，均已在我的GitHub上开源共享，&lt;strong&gt;欢迎fork&lt;/strong&gt;！&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;联系方式&#34;&gt;联系方式：&lt;/h2&gt;
+&lt;h2 id=&#34;-联系方式&#34;&gt;📧 联系方式&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;电子邮箱：2235743994@qq.com&lt;/li&gt;
 &lt;li&gt;Bilibili：&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/617598122&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -79,7 +79,7 @@
 &lt;li&gt;CSDN：&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/qq_74845080&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;HappyLeeCode&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;鸣谢&#34;&gt;鸣谢：&lt;/h2&gt;
+&lt;h2 id=&#34;-鸣谢&#34;&gt;🎈 鸣谢&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;感谢&lt;strong&gt;Hugo&lt;/strong&gt;提供的博客框架支持：https://gohugo.io/&lt;/li&gt;
 &lt;li&gt;感谢&lt;a class=&#34;link&#34; href=&#34;https://jimmycai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -90,7 +90,7 @@
     &gt;&lt;strong&gt;火车啦啦&lt;/strong&gt;&lt;/a&gt;、&lt;a class=&#34;link&#34; href=&#34;https://space.bilibili.com/12890453?spm_id_from=333.337.0.0&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;程序员鱼皮&lt;/strong&gt;&lt;/a&gt;等的博客搭建教程，提供的指导！&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;写在最后&#34;&gt;写在最后：&lt;/h2&gt;
+&lt;h2 id=&#34;写在最后&#34;&gt;🍻写在最后&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;如果你有任何技术上的问题，欢迎在首页&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/projects/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;项目&lt;/strong&gt;&lt;/a&gt;板块下方的&lt;strong&gt;评论区&lt;/strong&gt;交流！&lt;/p&gt;
