@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://www.happylee.cn/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/'>
 
-<link rel="stylesheet" href="/scss/style.min.afa623dfb9682b431496282473b3cd5704dfb51f22d0d528a89d9d56858188d7.css"><meta property='og:title' content='解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题'>
+<link rel="stylesheet" href="/scss/style.min.f37881359e45567b2f41c095217ee4ff4391f0aeeafe6ea93aa5fbafb6f01e8e.css"><meta property='og:title' content='解决Git同时部署到GitHub和Gitee时，密钥SSH冲突问题'>
 <meta property='og:description' content='当有多个git账号的时候，比如一个是GitHub的，用于自己进行一些开发活动；后来觉得GitHub访问起来太慢了，又注册了国内的码云gitee账号（或者来一个gitlab账号，一般是公司内部用到的git）。我们在使用这几者时，就会涉及到一个问题：在绑定SSH密钥的过程中，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个后面就用不了。'>
 <meta property='og:url' content='https://www.happylee.cn/post/%E8%A7%A3%E5%86%B3git%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8Cgitee%E6%97%B6%E5%AF%86%E9%92%A5ssh%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98/'>
 <meta property='og:site_name' content='Lee&#39;s Blog'>
@@ -513,6 +513,10 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])</p>
     
 
     <footer class="site-footer">
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
     <section class="copyright">
         &copy; 
         
@@ -521,8 +525,8 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])</p>
     
     <section class="powerby">
         
-            <a href="https://icp.gov.moe/?keyword=20230301" target="_blank">备案号</a> <a href="https://icp.gov.moe/?keyword=20230301"><span>萌ICP备20230301号</span></a> <br/>
-        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+            <span id="busuanzi_container_site_pv">本站总访问量：<span id="busuanzi_value_site_pv"></span>次</span></br> <a href="https://icp.gov.moe/?keyword=20230301" target="_blank">备案号</a>&nbsp; <a href="https://icp.gov.moe/?keyword=20230301"><span>萌ICP备20230301号</span></a> <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &nbsp;||&nbsp;
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
