@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Henry Lee</copyright>
-        <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>📌置顶：关于本站</title>
         <link>https://www.happylee.cn/post/about-blog/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -322,6 +322,45 @@
 &lt;p&gt;至此，本篇文章就结束了。码字不易，还请多多支持本站，欢迎您的后续关注！&lt;/p&gt;
 &lt;p&gt;另外，如果您有什么问题或者发现了网站中的一些错误，以及对网站的一些建议，都欢迎您在&lt;strong&gt;下方评论区&lt;/strong&gt;留言和我交流、讨论！&lt;/p&gt;
 &lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>Digital Signal Processing</title>
+        <link>https://www.happylee.cn/post/digital-signal-processing/</link>
+        <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/digital-signal-processing/</guid>
+        <description>&lt;img src="https://www.happylee.cn/post/digital-signal-processing/matlab_img.png" alt="Featured image of post Digital Signal Processing" /&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/li&gt;
+&lt;li&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/li&gt;
+&lt;li&gt;本实验中的程序运行环境为&lt;strong&gt;MATLAB R2022b&lt;/strong&gt;，不同版本下的程序可能有所&lt;strong&gt;差异&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;目录&#34;&gt;目录：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;实验一   信号系统及系统响应&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验二   用FFT作谱分析&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验三   模拟滤波器及IIR数字滤波器的设计&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验四   基于窗函数的FIR数字滤波器的设计&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（实验报告中的程序代码，可点击&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Signal-Processing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;这里&lt;/strong&gt;&lt;/a&gt;查看）&lt;/p&gt;
+&lt;h2 id=&#34;实验报告&#34;&gt;实验报告：&lt;/h2&gt;
+
+
+&lt;object
+    data=&#34;./pdf/%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%ae%9e%e9%aa%8c%e6%8a%a5%e5%91%8a.pdf#view=Fit&amp;amp;page=1&#34; width=&#34;100%&#34; height=&#34;500px&#34;type=&#34;application/pdf&#34;
+&gt;
+    &lt;p&gt;Unable to display PDF file. &lt;a href=&#34;./pdf/%e6%95%b0%e5%ad%97%e4%bf%a1%e5%8f%b7%e5%ae%9e%e9%aa%8c%e6%8a%a5%e5%91%8a.pdf#view=Fit&amp;amp;page=1&#34;&gt;Download&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/li&gt;
+&lt;li&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -7405,7 +7444,7 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;效果展示&#34;&gt;效果展示&lt;/h1&gt;
 &lt;h2 id=&#34;1butterfly主题自带页面加载动画-preloader&#34;&gt;1.Butterfly主题自带页面加载动画 preloader：&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://file.crazywong.com/gh/jerryc127/CDN/img/hexo-theme-butterfly-docs-preloader.gif&#34;
+&lt;p&gt;&lt;img src=&#34;https://jsd.012700.xyz/gh/jerryc127/CDN/img/hexo-theme-butterfly-docs-preloader.gif&#34;
 	
 	
 	
@@ -14402,8 +14441,10 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;数字信号处理仿真&#34;&gt;数字信号处理仿真&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;数字信号处理实验报告&lt;/li&gt;
-&lt;li&gt;程序代码&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/digital-signal-processing/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数字信号处理实验报告&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Signal-Processing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;程序代码&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;嵌入式系统及应用&#34;&gt;嵌入式系统及应用&lt;/h3&gt;
 &lt;ul&gt;

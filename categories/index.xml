@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Henry Lee</copyright>
-        <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>计算机仿真</title>
+        <link>https://www.happylee.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F/</link>
+        <pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>操作系统实验</title>
         <link>https://www.happylee.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E9%AA%8C/</link>
         <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
@@ -53,14 +61,6 @@
         <pubDate>Sun, 11 Jun 2023 00:00:00 +0000</pubDate>
         
         <guid>https://www.happylee.cn/categories/%E9%80%9A%E7%9F%A5%E5%85%AC%E5%91%8A/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>计算机仿真</title>
-        <link>https://www.happylee.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F/</link>
-        <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://www.happylee.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BB%BF%E7%9C%9F/</guid>
         <description></description>
         </item>
         <item>

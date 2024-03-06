@@ -172,8 +172,10 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;数字信号处理仿真&#34;&gt;数字信号处理仿真&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;数字信号处理实验报告&lt;/li&gt;
-&lt;li&gt;程序代码&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/digital-signal-processing/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数字信号处理实验报告&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Signal-Processing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;程序代码&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;嵌入式系统及应用&#34;&gt;嵌入式系统及应用&lt;/h3&gt;
 &lt;ul&gt;
