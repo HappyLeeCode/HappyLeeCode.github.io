@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='LCP_MNIST：基于CNN&#43;Adam的手写数字识别项目 写在前面： 🚩 本项目为电子信息工程专业生产实习的小组结课作业 🏆 本项目由LCP速通小组'>
+<title>基于CNN&#43;Adam的手写数字识别项目</title>
+
+<link rel='canonical' href='https://www.happylee.cn/post/lcp-mnist/'>
+
+<link rel="stylesheet" href="/scss/style.min.f37881359e45567b2f41c095217ee4ff4391f0aeeafe6ea93aa5fbafb6f01e8e.css"><meta property='og:title' content='基于CNN&#43;Adam的手写数字识别项目'>
+<meta property='og:description' content='LCP_MNIST：基于CNN&#43;Adam的手写数字识别项目 写在前面： 🚩 本项目为电子信息工程专业生产实习的小组结课作业 🏆 本项目由LCP速通小组'>
+<meta property='og:url' content='https://www.happylee.cn/post/lcp-mnist/'>
+<meta property='og:site_name' content='Lee&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='pytorch' /><meta property='article:tag' content='CNN' /><meta property='article:tag' content='Adam' /><meta property='article:published_time' content='2024-07-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-07-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://www.happylee.cn/post/lcp-mnist/top.png' />
+<meta name="twitter:title" content="基于CNN&#43;Adam的手写数字识别项目">
+<meta name="twitter:description" content="LCP_MNIST：基于CNN&#43;Adam的手写数字识别项目 写在前面： 🚩 本项目为电子信息工程专业生产实习的小组结课作业 🏆 本项目由LCP速通小组"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://www.happylee.cn/post/lcp-mnist/top.png' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+
+        <div id="article-toolbar" style="position: sticky;top: 5px;z-index: 1000;">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#获取项目">获取项目</a>
+      <ol>
+        <li><a href="#环境配置">环境配置</a></li>
+      </ol>
+    </li>
+    <li><a href="#项目结构">项目结构</a></li>
+    <li><a href="#模型建立与优化">模型建立与优化</a></li>
+    <li><a href="#模型训练">模型训练</a>
+      <ol>
+        <li><a href="#训练过程可视化">训练过程可视化</a></li>
+        <li><a href="#模型测试">模型测试</a></li>
+      </ol>
+    </li>
+    <li><a href="#训练结果可视化">训练结果可视化</a></li>
+    <li><a href="#制作自己的数据集">制作自己的数据集</a>
+      <ol>
+        <li><a href="#手写图片制作">手写图片制作</a></li>
+        <li><a href="#图片批处理与标签生成">图片批处理与标签生成</a></li>
+      </ol>
+    </li>
+    <li><a href="#最终测试效果">最终测试效果</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/post/lcp-mnist/">
+                <img src="/post/lcp-mnist/top.png"
+                        
+                        width="1225" 
+                        height="496" 
+                        loading="lazy"
+                        alt="Featured image of post 基于CNN&#43;Adam的手写数字识别项目" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" >
+                计算机视觉
+            </a>
+        
+            <a href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" >
+                人工智能
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/lcp-mnist/">基于CNN&#43;Adam的手写数字识别项目</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 01, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="lcp_mnist基于cnnadam的手写数字识别项目">LCP_MNIST：基于CNN+Adam的手写数字识别项目</h1>
+<hr>
+<blockquote>
+<p><strong>写在前面：</strong></p>
+<ul>
+<li>🚩 本项目为<strong>电子信息工程专业</strong>生产实习的小组结课作业</li>
+<li>🏆 本项目由<strong>LCP速通小组</strong>创立和维护，并最终荣获了“<strong>优秀项目奖</strong>”</li>
+<li>🤝 关于本项目的相关代码和训练数据集，已在<strong>GitHub</strong>上<strong>开源</strong>，仅作学习交流用途</li>
+<li><strong>🔞 严禁直接抄袭本项目、复制粘贴改名等学术不端行为</strong></li>
+</ul>
+<p><strong>项目简介：</strong></p>
+<ul>
+<li>
+<p><strong>MNIST</strong>是一个非常经典的手写数字数据集，由美国国家标准与技术研究所（NIST）在20世纪80年代整理和标注。这个数据集<strong>包含了一系列0到9的手写数字图像</strong>，用于机器学习中的<strong>图像分类任务</strong>。MNIST数据集被广泛应用于训练和验证机器学习模型的性能。</p>
+</li>
+<li>
+<p>在本次生产实习项目作业中，我们<strong>LCP速通小组</strong>根据老师提供的一个最基础的基于MNIST数据集的神经网络训练框架，对里面给定的三个基本模型进行<strong>优化修改</strong>和<strong>训练</strong>，并对测试的<strong>结果进行可视化</strong>，以及最后制作了<strong>我们自己的数据集</strong>。</p>
+</li>
+</ul>
+<p><strong>团队介绍：</strong></p>
+<ul>
+<li>
+<p><strong>🤗 为什么叫“LCP速通小组”？</strong></p>
+<p>​       ”LCP“英文全称为：Lectures on Communication Principles ，即“通信原理教程”。<br>		因此，整个<strong>小组名</strong>其实就是”<strong>通信原理速通小组</strong>“的意思。<br>    	🤡 这源于进行生产实习期间，我们专业当时正好有一门名叫《通信原理》的课程要<strong>结课考试</strong>。</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="获取项目">获取项目</h2>
+<p>💌 项目地址：<a class="link" href="https://github.com/HappyLeeCode/LCP_MNIST"  target="_blank" rel="noopener"
+    >点我跳转到GitHub仓库</a></p>
+<p>​		（或者，使用以下命令拷贝到本地）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/HappyLeeCode/LCP_MNIST.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="环境配置">环境配置</h3>
+<p>​	本项目所使用的有关软件和外部依赖库版本为：</p>
+<ul>
+<li>
+<p>PyCharm Community Edition 2024.1.3         Python 3.11.7        torchvision</p>
+</li>
+<li>
+<p>tensorboard        opencv-python        matplotlib~=3.8.0        pillow~=10.2.0</p>
+</li>
+</ul>
+<ol>
+<li>在启动虚拟环境下使用pip命令安装opencv­—python：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip install opencv-python -i &lt;https://pypi.tuna.tsinghua.edu.cn/simple&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>安装pytorch:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip install torch torchvision torchaudio -i https://pypi.tuna.tsinghua.edu.cn/simple
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>
+<p>安装Tensorboard:</p>
+<p>在本次项目中我们使用tensordboard工具对训练过程中的训练损失和验证损失进行记录并以曲线的形式呈现。</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip install tensorboard
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="项目结构">项目结构</h2>
+<p><img src="/post/lcp-mnist/img/menu.png"
+	width="630"
+	height="410"
+	
+	loading="lazy"
+	
+		alt="ProjectImages"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="153"
+		data-flex-basis="368px"
+	
+></p>
+<center>项目结构图</center>
+<ul>
+<li>
+<p>data文件夹是保存MNIST官方数据集的文件夹，无需改动</p>
+</li>
+<li>
+<p>docs文件夹是保存我们的项目说明文档和相关图片，无需改动</p>
+</li>
+<li>
+<p>logs文件夹是保存我们已经训练过的不同模型的训练损失和验证损失可视化结果（基于Tensorboard），不需改动</p>
+</li>
+<li>
+<p>models文件夹是用来保存卷积神经网络模型代码，其中<strong>LeNet.py，ney.py，vgg16.py</strong>是老师提供的初始模型，其中vgg16.py中的<strong>vgg模型</strong>和LeNet.py中的<strong>Module模型</strong>已被我们调试好，可以运行；</p>
+</li>
+<li>
+<p>our_dataset文件夹是用来保存我们自己制作的数据集，包含自己手写数字图片，与标签文件等</p>
+</li>
+<li>
+<p>tools文件夹存放有用于图片处理的process.py，训练train.py，以及用于评估的evaluate.py程序等</p>
+</li>
+</ul>
+<hr>
+<h2 id="模型建立与优化">模型建立与优化</h2>
+<p>​	关于MNIST的基础卷积神经网络是这样设计的，</p>
+<ol>
+<li>
+<p>第一层是一个卷积层，输入通道是1，输出通道是32，卷积核大小是3×3。输入维度是1×28×28，输出维度是32×28×28。</p>
+</li>
+<li>
+<p>第二层是一个下采样层，采样核大小是2×2，输入维度是32×28×28，输出维度是32×14×14。</p>
+</li>
+<li>
+<p>第三层是一个卷积层，输入通道是32，输出通道是64，卷积核大小是3×3。输入维度是32×14×14，输出维度是64×14×14。</p>
+</li>
+<li>
+<p>第四层是一个下采样层，采样核大小是2×2，输入维度是64×14×14，输出维度是64×7×7。</p>
+</li>
+<li>
+<p>第五层是展平层，张量维度为64×7×7。</p>
+</li>
+<li>
+<p>第六层是一个全连接层，输出神经元个数为128个。</p>
+</li>
+<li>
+<p>第七层是一个全连接层，输出神经元个数为10个。</p>
+<p>代码如下：</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">CNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	在基础的卷积神经网络CNN下我们进行了修改，给出了一个目前调试得最好的CNN模型，其设计如下：</p>
+<ol>
+<li>
+<p>第一层是一个卷积层，输入通道是1，输出通道是32，卷积核大小是3×3。输入维度是1×28×28，输出维度是32×28×28。</p>
+</li>
+<li>
+<p>第二层是一个下采样层，采样核大小是2×2，输入维度是32×28×28，输出维度是32×14×14。</p>
+</li>
+<li>
+<p>第三层是一个卷积层，输入通道是32，输出通道是64，卷积核大小是3×3。输入维度是32×14×14，输出维度是64×14×14。</p>
+</li>
+<li>
+<p>第四层是一个下采样层，采样核大小是2×2，输入维度是64×14×14，输出维度是64×7×7。</p>
+</li>
+<li>
+<p>第五层是一个卷积层，输入通道是64，输出通道是128，卷积核大小是3×3。输入维度是64×7×7，输出维度是128×7×7。</p>
+</li>
+<li>
+<p>第六层是展平层，张量维度为128×7×7。</p>
+</li>
+<li>
+<p>第七层是一个全连接层，输出神经元个数为128个。</p>
+</li>
+<li>
+<p>第八层是一个全连接层，输出神经元个数为256个。</p>
+</li>
+<li>
+<p>第九层是一个全连接层，输出神经元个数为10个。</p>
+<p>代码如下：</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">CNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv3</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	此外我们还基于CNN调试了其他三个模型，但效果不如上文调试出的最好模型，下面做出简要介绍:</p>
+<ul>
+<li>
+<p>第一个：在基础模型上往欠拟合方向进行改动：在第一个全连接层后加入dropout层进行正则化</p>
+</li>
+<li>
+<p>第二个：在最佳模型上往欠拟合方向进行改动：删除第三个卷积层</p>
+</li>
+<li>
+<p>第三个：在最佳模型上往过拟合方向进行改动：将卷积核大小改为5 * 5</p>
+</li>
+</ul>
+<hr>
+<h2 id="模型训练">模型训练</h2>
+<p>​	运行tools文件夹下的<strong>train.py</strong>文件，会分别选择对应的神经网络进行训练。训练后生成.pth保存训练好的模型权重，以及在logs文件夹的fit下面生成一个保存训练过程中损失数据的文件。</p>
+<h3 id="训练过程可视化">训练过程可视化</h3>
+<p>​	利用tensorboard，使用时可在pycharm的终端下使用命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tensorboard--logdir<span class="o">=</span><span class="s2">&#34;(路径替换为自己的路径)&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>​	这会生成一个端口，进入端口即可查看记录数据</p>
+<h3 id="模型测试">模型测试</h3>
+<ol>
+<li>
+<p>在our_dataset/test_data文件夹下的10个文件夹下放入对应的手写数字图片，图片长和宽随意，注意图片要是黑底白字的。</p>
+</li>
+<li>
+<p>如果要测试训练好的CNN模型，请运行tools文件夹下的<strong>trained.py</strong></p>
+</li>
+<li>
+<p>然后会在modules文件下生成一个<strong>mnist_cnn.pth</strong>，这样就保存好了训练好的模型。</p>
+</li>
+</ol>
+<p><strong>准确率参考：</strong></p>
+<center>表1 不同模型在验证集上的最终准确率</center>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">model</th>
+<th style="text-align:center">Accuracy</th>
+<th style="text-align:center">epoch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CNN(初始)</td>
+<td style="text-align:center">98.56%</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">VGG16(初始)</td>
+<td style="text-align:center">86.39%</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">Module(初始)</td>
+<td style="text-align:center">10.10%</td>
+<td style="text-align:center">2</td>
+</tr>
+</tbody>
+</table></div>
+<center>表2 CNN模型在不同优化器测试后的最终准确率</center>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:center">trained-model</th>
+<th style="text-align:center">优化器</th>
+<th style="text-align:center">Accuracy</th>
+<th style="text-align:center">epoch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">SGD</td>
+<td style="text-align:center">93%</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">CNN</td>
+<td style="text-align:center">Adam</td>
+<td style="text-align:center">97%</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">CNN(best)</td>
+<td style="text-align:center">Adam</td>
+<td style="text-align:center">99%</td>
+<td style="text-align:center">10</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="训练结果可视化">训练结果可视化</h2>
+<p>​	运行tensorboard命令即可在浏览器中查看训练结果：</p>
+<p><img src="/post/lcp-mnist/img/trainloss.png"
+	width="1920"
+	height="1027"
+	
+	loading="lazy"
+	
+		alt="trainlossImages"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="448px"
+	
+></p>
+<center>CNN+Adam的训练损失曲线</center>
+<p><img src="/post/lcp-mnist/img/valloss.png"
+	width="1920"
+	height="1030"
+	
+	loading="lazy"
+	
+		alt="vallossImages"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="447px"
+	
+></p>
+<center>CNN+Adam的验证损失曲线</center>
+<hr>
+<h2 id="制作自己的数据集">制作自己的数据集</h2>
+<p>​	our_dataset文件夹下有三个文件夹，input、output、test_data。</p>
+<ul>
+<li>
+<p><strong>input</strong>文件夹下，保存未处理的手写图片，比如保存数字1的手写图片，依次类推。</p>
+</li>
+<li>
+<p><strong>output</strong>文件夹下，保存从input文件夹中读取的所有图片，并经过了相关的处理。</p>
+</li>
+<li>
+<p><strong>test_data</strong>文件夹下，保存有我们处理好并经过标签分类好的测试图片。</p>
+<p>整个目录树如图所示：</p>
+</li>
+</ul>
+<p><img src="/post/lcp-mnist/img/data.png"
+	width="566"
+	height="427"
+	
+	loading="lazy"
+	
+		alt="our_dataset"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="318px"
+	
+></p>
+<h3 id="手写图片制作">手写图片制作</h3>
+<p>​	打开windows画板，或者使用平板，写一些数字，然后用图片编辑软件裁剪图片，使得数字大概在裁剪图片的中心，然后在our_dataset/input文件夹下的10个文件夹下放入对应的手写数字图片。</p>
+<p>​	我使用平板写的10个数字如下：</p>
+<p><img src="/post/lcp-mnist/img/input.jpg"
+	width="1095"
+	height="137"
+	
+	loading="lazy"
+	
+		alt="myHandWriting"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="799"
+		data-flex-basis="1918px"
+	
+></p>
+<h3 id="图片批处理与标签生成">图片批处理与标签生成</h3>
+<p>​	运行<strong>process.py</strong>，这样就会把input文件下的图片转换为黑底白字</p>
+<p><img src="/post/lcp-mnist/img/output.jpg"
+	width="1103"
+	height="128"
+	
+	loading="lazy"
+	
+		alt="processed"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="861"
+		data-flex-basis="2068px"
+	
+></p>
+<hr>
+<h2 id="最终测试效果">最终测试效果</h2>
+<p>​	运行tools下的<strong>evaluate.py</strong>。</p>
+<p>​	话不多说，最终测评结果直接放图（自设置CNN+Adam）：</p>
+<p><img src="/post/lcp-mnist/img/final.png"
+	width="1311"
+	height="387"
+	
+	loading="lazy"
+	
+		alt="final_score"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="338"
+		data-flex-basis="813px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/pytorch/">pytorch</a>
+        
+            <a href="/tags/cnn/">CNN</a>
+        
+            <a href="/tags/adam/">Adam</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+<style>
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
+    }
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'https:\/\/mytwikoo.happylee.cn\/.netlify\/functions\/twikoo',
+        el: '#tcomment',})
+</script>
+
+    
+
+    <footer class="site-footer">
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2024 Henry Lee
+    </section>
+    
+    <section class="powerby">
+        
+            <span id="busuanzi_container_site_pv">本站总访问量：<span id="busuanzi_value_site_pv"></span>次</span></br> <a href="https://icp.gov.moe/?keyword=20230301" target="_blank">备案号</a>&nbsp; <a href="https://icp.gov.moe/?keyword=20230301"><span>萌ICP备20230301号</span></a> <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &nbsp;||&nbsp;
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.21.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
