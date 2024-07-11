@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Henry Lee</copyright>
-        <lastBuildDate>Fri, 15 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 30 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.happylee.cn/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>📌置顶：关于本站</title>
         <link>https://www.happylee.cn/post/about-blog/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -322,6 +322,48 @@
 &lt;p&gt;至此，本篇文章就结束了。码字不易，还请多多支持本站，欢迎您的后续关注！&lt;/p&gt;
 &lt;p&gt;另外，如果您有什么问题或者发现了网站中的一些错误，以及对网站的一些建议，都欢迎您在&lt;strong&gt;下方评论区&lt;/strong&gt;留言和我交流、讨论！&lt;/p&gt;
 &lt;hr&gt;
+</description>
+        </item>
+        <item>
+        <title>数字图像处理实验报告</title>
+        <link>https://www.happylee.cn/post/digital-image-processing/</link>
+        <pubDate>Sun, 30 Jun 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.happylee.cn/post/digital-image-processing/</guid>
+        <description>&lt;img src="https://www.happylee.cn/post/digital-image-processing/matlab_img.png" alt="Featured image of post 数字图像处理实验报告" /&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端暂时无法正常显示PDF文档&lt;/li&gt;
+&lt;li&gt;本部分的实验报告适用于&lt;strong&gt;电子信息工程&lt;/strong&gt;专业，其他专业仅供参考&lt;/li&gt;
+&lt;li&gt;本实验中的程序运行环境为&lt;strong&gt;MATLAB R2022b&lt;/strong&gt;，不同版本下的程序可能有所&lt;strong&gt;差异&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;目录&#34;&gt;目录：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实验1   MATLAB 图像的点运算&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验2   空间域图像增强&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验3   图像的傅立叶变换&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验4   图像增强——频域滤波&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验5   数字图像的几何变换&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验6   形态学图像处理&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验7   图像分割&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（实验报告中的程序代码，可点击&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Image-Processing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;这里&lt;/strong&gt;&lt;/a&gt;查看）&lt;/p&gt;
+&lt;h2 id=&#34;实验报告&#34;&gt;实验报告：&lt;/h2&gt;
+
+
+&lt;object
+    data=&#34;./pdf/%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e5%a4%84%e7%90%86%e5%ae%9e%e9%aa%8c%e6%8a%a5%e5%91%8a.pdf#view=Fit&amp;amp;page=1&#34; width=&#34;100%&#34; height=&#34;500px&#34;type=&#34;application/pdf&#34;
+&gt;
+    &lt;p&gt;Unable to display PDF file. &lt;a href=&#34;./pdf/%e6%95%b0%e5%ad%97%e5%9b%be%e5%83%8f%e5%a4%84%e7%90%86%e5%ae%9e%e9%aa%8c%e6%8a%a5%e5%91%8a.pdf#view=Fit&amp;amp;page=1&#34;&gt;Download&lt;/a&gt; instead.&lt;/p&gt;
+&lt;/object&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请使用&lt;strong&gt;电脑端&lt;/strong&gt;访问此页面，手机端可能无法正常显示上方PDF文档&lt;/li&gt;
+&lt;li&gt;严禁直接抄袭本报告、复制粘贴改名等学术不端行为！&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -14396,13 +14438,17 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;基于qt的gui编程&#34;&gt;基于QT的GUI编程&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;QT入门：计算器的实现&lt;/li&gt;
-&lt;li&gt;QT进阶：实现图像涂色&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/LeeCalculator&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;QT入门：计算器的实现&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/QT-GUI/tree/main/UltimateDSP&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;QT进阶：实现图像涂色&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;数字图像处理算法&#34;&gt;数字图像处理算法&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;灰度直方图绘制&lt;/li&gt;
-&lt;li&gt;灰度直方图均衡&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Image-Processing/tree/main/%e5%ae%9e%e9%aa%8c%e4%bb%a3%e7%a0%81/%e5%85%b6%e5%ae%83/%e7%9b%b4%e6%96%b9%e5%9b%be&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;直方图绘制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Image-Processing/tree/main/%e5%ae%9e%e9%aa%8c%e4%bb%a3%e7%a0%81/%e5%85%b6%e5%ae%83/%e9%ab%98%e6%96%af%e5%b9%b3%e6%bb%91%e6%a8%a1%e6%9d%bf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;高斯平滑模版&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/br&gt;
 &lt;/br&gt;
@@ -14444,6 +14490,13 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])&lt;/p&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/digital-signal-processing/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;数字信号处理实验报告&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Signal-Processing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;程序代码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数字图像处理仿真&#34;&gt;数字图像处理仿真&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://happylee.cn/post/digital-image-processing/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;数字图像处理实验报告&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HappyLeeCode/Digital-Image-Processing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;程序代码&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;嵌入式系统及应用&#34;&gt;嵌入式系统及应用&lt;/h3&gt;
